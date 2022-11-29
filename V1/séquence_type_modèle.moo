@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?PowerDesigner AppLocale="UTF16" ID="{7D51B3B4-2C91-445F-BC5C-CDD527613814}" Label="" LastModificationDate="1668881096" Name="type_modèle" Objects="18" Symbols="22" Target="Java" TargetLink="Reference" Type="{18112060-1A4B-11D1-83D9-444553540000}" signature="CLD_OBJECT_MODEL" version="15.1.0.2850"?>
+<?PowerDesigner AppLocale="UTF16" ID="{7D51B3B4-2C91-445F-BC5C-CDD527613814}" Label="" LastModificationDate="1669317257" Name="type_modèle" Objects="18" Symbols="22" Target="Java" TargetLink="Reference" Type="{18112060-1A4B-11D1-83D9-444553540000}" signature="CLD_OBJECT_MODEL" version="15.1.0.2850"?>
 <!-- Veuillez ne pas modifier ce fichier -->
 
 <Model xmlns:a="attribute" xmlns:c="collection" xmlns:o="object">
@@ -12,7 +12,7 @@
 <a:Code>type_modele</a:Code>
 <a:CreationDate>1668873675</a:CreationDate>
 <a:Creator>eljao</a:Creator>
-<a:ModificationDate>1668880602</a:ModificationDate>
+<a:ModificationDate>1669317257</a:ModificationDate>
 <a:Modifier>eljao</a:Modifier>
 <a:PackageOptionsText>[FolderOptions]
 
@@ -985,7 +985,7 @@ NameToCode=No</a:ModelOptionsText>
 <a:Code>type_modele</a:Code>
 <a:CreationDate>1668873675</a:CreationDate>
 <a:Creator>eljao</a:Creator>
-<a:ModificationDate>1668874633</a:ModificationDate>
+<a:ModificationDate>1669317257</a:ModificationDate>
 <a:Modifier>eljao</a:Modifier>
 <a:DisplayPreferences>[DisplayPreferences]
 
@@ -1382,8 +1382,9 @@ Shadow=0</a:DisplayPreferences>
 </o:InteractionSymbol>
 <o:MessageSymbol Id="o7">
 <a:CreationDate>1668874633</a:CreationDate>
-<a:ModificationDate>1668874633</a:ModificationDate>
-<a:Rect>((5437,-16300), (12187,-14254))</a:Rect>
+<a:ModificationDate>1669317249</a:ModificationDate>
+<a:CenterTextOffset>(3900, -600)</a:CenterTextOffset>
+<a:Rect>((5437,-16300), (16087,-14700))</a:Rect>
 <a:ListOfPoints>((5437,-14700),(9037,-14700),(9037,-16300),(5437,-16300))</a:ListOfPoints>
 <a:CornerStyle>2</a:CornerStyle>
 <a:ArrowStyle>8</a:ArrowStyle>
@@ -1637,34 +1638,7 @@ DISPNAME 0 Arial,8,U</a:FontList>
 <o:UMLObject Ref="o30"/>
 </c:Object>
 </o:UMLObjectSequenceSymbol>
-<o:UMLObjectSequenceSymbol Id="o31">
-<a:CreationDate>1668873701</a:CreationDate>
-<a:ModificationDate>1668874539</a:ModificationDate>
-<a:Rect>((17288,10688), (22087,14287))</a:Rect>
-<a:LineColor>33023</a:LineColor>
-<a:FillColor>8637161</a:FillColor>
-<a:ShadowColor>12632256</a:ShadowColor>
-<a:FontList>OBJSTRN 0 Arial,8,N
-DISPNAME 0 Arial,8,U</a:FontList>
-<a:BrushStyle>6</a:BrushStyle>
-<a:GradientFillMode>65</a:GradientFillMode>
-<a:GradientEndColor>16777215</a:GradientEndColor>
-<c:SlaveSubSymbols>
-<o:LifelineSymbol Id="o32">
-<a:ModificationDate>1668874568</a:ModificationDate>
-<a:Rect>((19687,-23811), (19787,10688))</a:Rect>
-<a:ListOfPoints>((19687,10688),(19687,-23811))</a:ListOfPoints>
-<a:ArrowStyle>0</a:ArrowStyle>
-<a:LineColor>33023</a:LineColor>
-<a:DashStyle>3</a:DashStyle>
-<a:ShadowColor>8421504</a:ShadowColor>
-</o:LifelineSymbol>
-</c:SlaveSubSymbols>
-<c:Object>
-<o:UMLObject Ref="o33"/>
-</c:Object>
-</o:UMLObjectSequenceSymbol>
-<o:InteractionFragmentSymbol Id="o34">
+<o:InteractionFragmentSymbol Id="o31">
 <a:CreationDate>1668873795</a:CreationDate>
 <a:ModificationDate>1668874539</a:ModificationDate>
 <a:RegionConditionPositionList>((8800,300))</a:RegionConditionPositionList>
@@ -1683,10 +1657,10 @@ DISPNAME 0 Arial,8,U</a:FontList>
 <o:UMLObjectSequenceSymbol Ref="o14"/>
 </c:AttachedLifelines>
 <c:Object>
-<o:InteractionFragment Ref="o35"/>
+<o:InteractionFragment Ref="o32"/>
 </c:Object>
 </o:InteractionFragmentSymbol>
-<o:InteractionFragmentSymbol Id="o36">
+<o:InteractionFragmentSymbol Id="o33">
 <a:CreationDate>1668873800</a:CreationDate>
 <a:ModificationDate>1668874539</a:ModificationDate>
 <a:RegionConditionPositionList>((7000,225))</a:RegionConditionPositionList>
@@ -1705,14 +1679,14 @@ DISPNAME 0 Arial,8,U</a:FontList>
 <o:UMLObjectSequenceSymbol Ref="o14"/>
 </c:AttachedLifelines>
 <c:Object>
-<o:InteractionFragment Ref="o37"/>
+<o:InteractionFragment Ref="o34"/>
 </c:Object>
 </o:InteractionFragmentSymbol>
 </c:Symbols>
 </o:SequenceDiagram>
 </c:SequenceDiagrams>
 <c:InteractionFragments>
-<o:InteractionFragment Id="o35">
+<o:InteractionFragment Id="o32">
 <a:ObjectID>839BE7FD-7595-403A-80E6-0A5BE930C1C2</a:ObjectID>
 <a:CreationDate>1668873795</a:CreationDate>
 <a:Creator>eljao</a:Creator>
@@ -1722,7 +1696,7 @@ DISPNAME 0 Arial,8,U</a:FontList>
 <a:FragmentType>opt</a:FragmentType>
 <a:Condition>type = PMC</a:Condition>
 </o:InteractionFragment>
-<o:InteractionFragment Id="o37">
+<o:InteractionFragment Id="o34">
 <a:ObjectID>BD55713F-00C0-43FC-8207-C9E3FDEB45BB</a:ObjectID>
 <a:CreationDate>1668873800</a:CreationDate>
 <a:Creator>eljao</a:Creator>
@@ -1752,15 +1726,6 @@ DISPNAME 0 Arial,8,U</a:FontList>
 <a:CreationDate>1668873700</a:CreationDate>
 <a:Creator>eljao</a:Creator>
 <a:ModificationDate>1668873716</a:ModificationDate>
-<a:Modifier>eljao</a:Modifier>
-</o:UMLObject>
-<o:UMLObject Id="o33">
-<a:ObjectID>E73D7350-DABE-43FC-93F0-4135C107FD2A</a:ObjectID>
-<a:Name>:Machine</a:Name>
-<a:Code>:Machine</a:Code>
-<a:CreationDate>1668873701</a:CreationDate>
-<a:Creator>eljao</a:Creator>
-<a:ModificationDate>1668873721</a:ModificationDate>
 <a:Modifier>eljao</a:Modifier>
 </o:UMLObject>
 </c:Model.Objects>
@@ -1873,7 +1838,7 @@ DISPNAME 0 Arial,8,U</a:FontList>
 </o:Message>
 </c:Messages>
 <c:TargetModels>
-<o:TargetModel Id="o38">
+<o:TargetModel Id="o35">
 <a:ObjectID>202B4E39-1CC9-469B-A3C6-CFED0C1D1B7F</a:ObjectID>
 <a:Name>Java</a:Name>
 <a:Code>Java</a:Code>
@@ -1888,7 +1853,7 @@ DISPNAME 0 Arial,8,U</a:FontList>
 <o:Shortcut Ref="o3"/>
 </c:SessionShortcuts>
 </o:TargetModel>
-<o:TargetModel Id="o39">
+<o:TargetModel Id="o36">
 <a:ObjectID>D829B957-93A7-45C9-8E08-5BF7E50CAD53</a:ObjectID>
 <a:Name>WSDL for Java</a:Name>
 <a:Code>WSDLJava</a:Code>

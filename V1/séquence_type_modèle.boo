@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?PowerDesigner AppLocale="UTF16" ID="{7D51B3B4-2C91-445F-BC5C-CDD527613814}" Label="" LastModificationDate="1668880602" Name="type_modèle" Objects="18" Symbols="22" Target="Java" TargetLink="Reference" Type="{18112060-1A4B-11D1-83D9-444553540000}" signature="CLD_OBJECT_MODEL" version="15.1.0.2850"?>
+<?PowerDesigner AppLocale="UTF16" ID="{7D51B3B4-2C91-445F-BC5C-CDD527613814}" Label="" LastModificationDate="1668881096" Name="type_modèle" Objects="18" Symbols="22" Target="Java" TargetLink="Reference" Type="{18112060-1A4B-11D1-83D9-444553540000}" signature="CLD_OBJECT_MODEL" version="15.1.0.2850"?>
 <!-- Veuillez ne pas modifier ce fichier -->
 
 <Model xmlns:a="attribute" xmlns:c="collection" xmlns:o="object">
@@ -1894,7 +1894,7 @@ DISPNAME 0 Arial,8,U</a:FontList>
 <a:Code>WSDLJava</a:Code>
 <a:CreationDate>1668873675</a:CreationDate>
 <a:Creator>eljao</a:Creator>
-<a:ModificationDate>1668873675</a:ModificationDate>
+<a:ModificationDate>1668881096</a:ModificationDate>
 <a:Modifier>eljao</a:Modifier>
 <a:TargetModelURL>file:///%_XEM%/WSDLJ2EE.xem</a:TargetModelURL>
 <a:TargetModelID>C8F5F7B2-CF9D-4E98-8301-959BB6E86C8A</a:TargetModelID>

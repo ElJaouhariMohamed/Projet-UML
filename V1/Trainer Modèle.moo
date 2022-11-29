@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?PowerDesigner AppLocale="UTF16" ID="{CA4A5133-DF44-4694-A89D-43817BE48BF4}" Label="" LastModificationDate="1668880874" Name="Trainer modèle" Objects="18" Symbols="17" Target="Java" TargetLink="Reference" Type="{18112060-1A4B-11D1-83D9-444553540000}" signature="CLD_OBJECT_MODEL" version="15.1.0.2850"?>
+<?PowerDesigner AppLocale="UTF16" ID="{CA4A5133-DF44-4694-A89D-43817BE48BF4}" Label="" LastModificationDate="1669477154" Name="Trainer modèle" Objects="16" Symbols="15" Target="Java" TargetLink="Reference" Type="{18112060-1A4B-11D1-83D9-444553540000}" signature="CLD_OBJECT_MODEL" version="15.1.0.2850"?>
 <!-- Veuillez ne pas modifier ce fichier -->
 
 <Model xmlns:a="attribute" xmlns:c="collection" xmlns:o="object">
@@ -1686,11 +1686,11 @@ DISPNAME 0 Arial,8,N</a:FontList>
 </o:Message>
 <o:Message Id="o17">
 <a:ObjectID>9AB8D808-B0B4-46BE-B432-1062427A7113</a:ObjectID>
-<a:Name>Message_2</a:Name>
-<a:Code>Message_2</a:Code>
+<a:Name>affiche_trainer()</a:Name>
+<a:Code>affiche_trainer__</a:Code>
 <a:CreationDate>1668878237</a:CreationDate>
 <a:Creator>eljao</a:Creator>
-<a:ModificationDate>1668878237</a:ModificationDate>
+<a:ModificationDate>1669316337</a:ModificationDate>
 <a:Modifier>eljao</a:Modifier>
 <c:Object1>
 <o:Actor Ref="o21"/>
@@ -1741,7 +1741,7 @@ DISPNAME 0 Arial,8,N</a:FontList>
 <a:Code>Java</a:Code>
 <a:CreationDate>1668878124</a:CreationDate>
 <a:Creator>eljao</a:Creator>
-<a:ModificationDate>1668878124</a:ModificationDate>
+<a:ModificationDate>1669474904</a:ModificationDate>
 <a:Modifier>eljao</a:Modifier>
 <a:TargetModelURL>file:///%_OBJLANG%/java5-j2ee14.xol</a:TargetModelURL>
 <a:TargetModelID>0DEDDB90-46E2-45A0-886E-411709DA0DC9</a:TargetModelID>
@@ -1756,7 +1756,7 @@ DISPNAME 0 Arial,8,N</a:FontList>
 <a:Code>WSDLJava</a:Code>
 <a:CreationDate>1668878124</a:CreationDate>
 <a:Creator>eljao</a:Creator>
-<a:ModificationDate>1668878124</a:ModificationDate>
+<a:ModificationDate>1669474904</a:ModificationDate>
 <a:Modifier>eljao</a:Modifier>
 <a:TargetModelURL>file:///%_XEM%/WSDLJ2EE.xem</a:TargetModelURL>
 <a:TargetModelID>C8F5F7B2-CF9D-4E98-8301-959BB6E86C8A</a:TargetModelID>
@@ -1771,9 +1771,9 @@ DISPNAME 0 Arial,8,N</a:FontList>
 <a:Code>Charger_Donnee</a:Code>
 <a:CreationDate>1668880874</a:CreationDate>
 <a:Creator>eljao</a:Creator>
-<a:ModificationDate>1668880874</a:ModificationDate>
+<a:ModificationDate>1669477154</a:ModificationDate>
 <a:Modifier>eljao</a:Modifier>
-<a:TargetModelURL>file:///C|/Users/eljao/OneDrive/Desktop/UML PROJECT/V1/Charger Donnée.moo</a:TargetModelURL>
+<a:TargetModelURL>file:///C|/Users/eljao/OneDrive/Desktop/IID2_2ème_année/UML/UML PROJECT/V1/Charger Donnée.moo</a:TargetModelURL>
 <a:TargetModelID>D1FDA7ED-9CC2-4EA6-8F3B-14DE9BAF9184</a:TargetModelID>
 <a:TargetModelClassID>18112060-1A4B-11D1-83D9-444553540000</a:TargetModelClassID>
 <c:SessionShortcuts>

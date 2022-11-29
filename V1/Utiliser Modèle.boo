@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?PowerDesigner AppLocale="UTF16" ID="{D6A2F265-30E2-4BAE-BD4A-FECE0A614B08}" Label="" LastModificationDate="1668881127" Name="Utiliser Modèle" Objects="17" Symbols="14" Target="Java" TargetLink="Reference" Type="{18112060-1A4B-11D1-83D9-444553540000}" signature="CLD_OBJECT_MODEL" version="15.1.0.2850"?>
+<?PowerDesigner AppLocale="UTF16" ID="{D6A2F265-30E2-4BAE-BD4A-FECE0A614B08}" Label="" LastModificationDate="1668881254" Name="Utiliser Modèle" Objects="20" Symbols="16" Target="Java" TargetLink="Reference" Type="{18112060-1A4B-11D1-83D9-444553540000}" signature="CLD_OBJECT_MODEL" version="15.1.0.2850"?>
 <!-- Veuillez ne pas modifier ce fichier -->
 
 <Model xmlns:a="attribute" xmlns:c="collection" xmlns:o="object">
@@ -12,7 +12,7 @@
 <a:Code>Utiliser_Modele</a:Code>
 <a:CreationDate>1668876349</a:CreationDate>
 <a:Creator>eljao</a:Creator>
-<a:ModificationDate>1668880790</a:ModificationDate>
+<a:ModificationDate>1668881254</a:ModificationDate>
 <a:Modifier>eljao</a:Modifier>
 <a:PackageOptionsText>[FolderOptions]
 
@@ -985,7 +985,7 @@ NameToCode=No</a:ModelOptionsText>
 <a:Code>Utiliser_modele</a:Code>
 <a:CreationDate>1668876349</a:CreationDate>
 <a:Creator>eljao</a:Creator>
-<a:ModificationDate>1668880790</a:ModificationDate>
+<a:ModificationDate>1668881254</a:ModificationDate>
 <a:Modifier>eljao</a:Modifier>
 <a:DisplayPreferences>[DisplayPreferences]
 
@@ -1596,9 +1596,31 @@ DISPNAME 0 Arial,8,N</a:FontList>
 <o:InteractionReference Ref="o27"/>
 </c:Object>
 </o:InteractionReferenceSymbol>
+<o:InteractionReferenceSymbol Id="o28">
+<a:CreationDate>1668881249</a:CreationDate>
+<a:ModificationDate>1668881254</a:ModificationDate>
+<a:Rect>((-20175,6938), (21075,2963))</a:Rect>
+<a:AutoAdjustToText>0</a:AutoAdjustToText>
+<a:LineColor>15257808</a:LineColor>
+<a:FillColor>13890042</a:FillColor>
+<a:ShadowColor>12632256</a:ShadowColor>
+<a:FontList>STRN 0 Arial,8,N
+DISPNAME 0 Arial,8,N</a:FontList>
+<a:BrushStyle>6</a:BrushStyle>
+<a:GradientFillMode>1031</a:GradientFillMode>
+<a:GradientEndColor>16777215</a:GradientEndColor>
+<c:AttachedLifelines>
+<o:ActorSequenceSymbol Ref="o8"/>
+<o:UMLObjectSequenceSymbol Ref="o9"/>
+<o:UMLObjectSequenceSymbol Ref="o21"/>
+</c:AttachedLifelines>
+<c:Object>
+<o:InteractionReference Ref="o29"/>
+</c:Object>
+</o:InteractionReferenceSymbol>
 </c:Symbols>
 </o:SequenceDiagram>
-<o:Shortcut Id="o28">
+<o:Shortcut Id="o30">
 <a:ObjectID>F7A1D077-48BB-4068-854C-DDCDEB75C1CF</a:ObjectID>
 <a:Name>Exporter données</a:Name>
 <a:Code>Exporter_donnees</a:Code>
@@ -1611,6 +1633,19 @@ DISPNAME 0 Arial,8,N</a:FontList>
 <a:TargetClassID>18112200-1A4B-11D1-83D9-444553540000</a:TargetClassID>
 <a:TargetPackagePath>&lt;Modèle&gt;</a:TargetPackagePath>
 </o:Shortcut>
+<o:Shortcut Id="o31">
+<a:ObjectID>3EDEAD0D-B741-41AE-9C69-27E66B1452AA</a:ObjectID>
+<a:Name>Chargée donnée</a:Name>
+<a:Code>Chargee_donnee</a:Code>
+<a:CreationDate>1668881249</a:CreationDate>
+<a:Creator>eljao</a:Creator>
+<a:ModificationDate>1668881254</a:ModificationDate>
+<a:Modifier>eljao</a:Modifier>
+<a:TargetStereotype/>
+<a:TargetID>185ED5D4-C01A-4A45-9264-78D261C4341E</a:TargetID>
+<a:TargetClassID>18112200-1A4B-11D1-83D9-444553540000</a:TargetClassID>
+<a:TargetPackagePath>&lt;Modèle&gt;</a:TargetPackagePath>
+</o:Shortcut>
 </c:SequenceDiagrams>
 <c:InteractionReferences>
 <o:InteractionReference Id="o27">
@@ -1620,7 +1655,17 @@ DISPNAME 0 Arial,8,N</a:FontList>
 <a:ModificationDate>1668880790</a:ModificationDate>
 <a:Modifier>eljao</a:Modifier>
 <c:ReferencedDiagram>
-<o:Shortcut Ref="o28"/>
+<o:Shortcut Ref="o30"/>
+</c:ReferencedDiagram>
+</o:InteractionReference>
+<o:InteractionReference Id="o29">
+<a:ObjectID>D3B53094-F044-4F10-ABC2-185D6924B55B</a:ObjectID>
+<a:CreationDate>1668881249</a:CreationDate>
+<a:Creator>eljao</a:Creator>
+<a:ModificationDate>1668881254</a:ModificationDate>
+<a:Modifier>eljao</a:Modifier>
+<c:ReferencedDiagram>
+<o:Shortcut Ref="o31"/>
 </c:ReferencedDiagram>
 </o:InteractionReference>
 </c:InteractionReferences>
@@ -1732,7 +1777,7 @@ DISPNAME 0 Arial,8,N</a:FontList>
 </o:Message>
 </c:Messages>
 <c:TargetModels>
-<o:TargetModel Id="o29">
+<o:TargetModel Id="o32">
 <a:ObjectID>C67F0385-ECB9-4828-AB6B-808C0668D823</a:ObjectID>
 <a:Name>Java</a:Name>
 <a:Code>Java</a:Code>
@@ -1747,7 +1792,7 @@ DISPNAME 0 Arial,8,N</a:FontList>
 <o:Shortcut Ref="o3"/>
 </c:SessionShortcuts>
 </o:TargetModel>
-<o:TargetModel Id="o30">
+<o:TargetModel Id="o33">
 <a:ObjectID>0A5C3C3C-34C9-46FF-B83F-568E9FC0AC43</a:ObjectID>
 <a:Name>WSDL for Java</a:Name>
 <a:Code>WSDLJava</a:Code>
@@ -1762,7 +1807,7 @@ DISPNAME 0 Arial,8,N</a:FontList>
 <o:Shortcut Ref="o4"/>
 </c:SessionShortcuts>
 </o:TargetModel>
-<o:TargetModel Id="o31">
+<o:TargetModel Id="o34">
 <a:ObjectID>DE41A5FD-9A98-4980-8C64-C82C634AC518</a:ObjectID>
 <a:Name>Exporter données</a:Name>
 <a:Code>Exporter_donnees</a:Code>
@@ -1774,7 +1819,22 @@ DISPNAME 0 Arial,8,N</a:FontList>
 <a:TargetModelID>56CD7C4C-7F49-4DFB-8A55-4054B765CF5B</a:TargetModelID>
 <a:TargetModelClassID>18112060-1A4B-11D1-83D9-444553540000</a:TargetModelClassID>
 <c:SessionShortcuts>
-<o:Shortcut Ref="o28"/>
+<o:Shortcut Ref="o30"/>
+</c:SessionShortcuts>
+</o:TargetModel>
+<o:TargetModel Id="o35">
+<a:ObjectID>3B49FCFC-D330-48F0-BACE-41372EB61205</a:ObjectID>
+<a:Name>Charger Donnée</a:Name>
+<a:Code>Charger_Donnee</a:Code>
+<a:CreationDate>1668881254</a:CreationDate>
+<a:Creator>eljao</a:Creator>
+<a:ModificationDate>1668881254</a:ModificationDate>
+<a:Modifier>eljao</a:Modifier>
+<a:TargetModelURL>file:///C|/Users/eljao/OneDrive/Desktop/UML PROJECT/V1/Charger Donnée.moo</a:TargetModelURL>
+<a:TargetModelID>D1FDA7ED-9CC2-4EA6-8F3B-14DE9BAF9184</a:TargetModelID>
+<a:TargetModelClassID>18112060-1A4B-11D1-83D9-444553540000</a:TargetModelClassID>
+<c:SessionShortcuts>
+<o:Shortcut Ref="o31"/>
 </c:SessionShortcuts>
 </o:TargetModel>
 </c:TargetModels>

@@ -1975,7 +1975,7 @@ DISPNAME 0 Arial,8,N</a:FontList>
 <a:Creator>eljao</a:Creator>
 <a:ModificationDate>1668881162</a:ModificationDate>
 <a:Modifier>eljao</a:Modifier>
-<a:TargetModelURL>file:///C|/Users/eljao/OneDrive/Desktop/UML PROJECT/V1/spécifier modèle.moo</a:TargetModelURL>
+<a:TargetModelURL>file:///C|/Users/eljao/OneDrive/Desktop/IID2_2ème_année/UML/UML PROJECT/V1/spécifier modèle.moo</a:TargetModelURL>
 <a:TargetModelID>115BAFCC-0E4B-41CC-8964-6F85C428B45A</a:TargetModelID>
 <a:TargetModelClassID>18112060-1A4B-11D1-83D9-444553540000</a:TargetModelClassID>
 <c:SessionShortcuts>
@@ -1990,7 +1990,7 @@ DISPNAME 0 Arial,8,N</a:FontList>
 <a:Creator>eljao</a:Creator>
 <a:ModificationDate>1668881112</a:ModificationDate>
 <a:Modifier>eljao</a:Modifier>
-<a:TargetModelURL>file:///C|/Users/eljao/OneDrive/Desktop/UML PROJECT/V1/séquence_type_modèle.moo</a:TargetModelURL>
+<a:TargetModelURL>file:///C|/Users/eljao/OneDrive/Desktop/IID2_2ème_année/UML/UML PROJECT/V1/séquence_type_modèle.moo</a:TargetModelURL>
 <a:TargetModelID>7D51B3B4-2C91-445F-BC5C-CDD527613814</a:TargetModelID>
 <a:TargetModelClassID>18112060-1A4B-11D1-83D9-444553540000</a:TargetModelClassID>
 <c:SessionShortcuts>
@@ -2005,7 +2005,7 @@ DISPNAME 0 Arial,8,N</a:FontList>
 <a:Creator>eljao</a:Creator>
 <a:ModificationDate>1668881314</a:ModificationDate>
 <a:Modifier>eljao</a:Modifier>
-<a:TargetModelURL>file:///C|/Users/eljao/OneDrive/Desktop/UML PROJECT/V1/Trainer Modèle.moo</a:TargetModelURL>
+<a:TargetModelURL>file:///C|/Users/eljao/OneDrive/Desktop/IID2_2ème_année/UML/UML PROJECT/V1/Trainer Modèle.moo</a:TargetModelURL>
 <a:TargetModelID>CA4A5133-DF44-4694-A89D-43817BE48BF4</a:TargetModelID>
 <a:TargetModelClassID>18112060-1A4B-11D1-83D9-444553540000</a:TargetModelClassID>
 <c:SessionShortcuts>

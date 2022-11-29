@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?PowerDesigner AppLocale="UTF16" ID="{B05AB5E5-AB28-4EE0-93C5-AFC4AA04E4F9}" Label="" LastModificationDate="1668873339" Name="V1" Objects="39" Symbols="37" Target="Java" TargetLink="Reference" Type="{18112060-1A4B-11D1-83D9-444553540000}" signature="CLD_OBJECT_MODEL" version="15.1.0.2850"?>
+<?PowerDesigner AppLocale="UTF16" ID="{B05AB5E5-AB28-4EE0-93C5-AFC4AA04E4F9}" Label="" LastModificationDate="1669473693" Name="use case" Objects="36" Symbols="34" Target="Java" TargetLink="Reference" Type="{18112060-1A4B-11D1-83D9-444553540000}" signature="CLD_OBJECT_MODEL" version="15.1.0.2850"?>
 <!-- Veuillez ne pas modifier ce fichier -->
 
 <Model xmlns:a="attribute" xmlns:c="collection" xmlns:o="object">
@@ -8,11 +8,11 @@
 <c:Children>
 <o:Model Id="o2">
 <a:ObjectID>B05AB5E5-AB28-4EE0-93C5-AFC4AA04E4F9</a:ObjectID>
-<a:Name>V1</a:Name>
-<a:Code>V1</a:Code>
+<a:Name>use case</a:Name>
+<a:Code>use_case</a:Code>
 <a:CreationDate>1668872235</a:CreationDate>
 <a:Creator>eljao</a:Creator>
-<a:ModificationDate>1668873299</a:ModificationDate>
+<a:ModificationDate>1669473693</a:ModificationDate>
 <a:Modifier>eljao</a:Modifier>
 <a:PackageOptionsText>[FolderOptions]
 
@@ -1351,7 +1351,7 @@ Shadow=0</a:DisplayPreferences>
 <o:DependencySymbol Id="o15">
 <a:CreationDate>1668872588</a:CreationDate>
 <a:ModificationDate>1668872644</a:ModificationDate>
-<a:Rect>((-12525,11676), (11325,17438))</a:Rect>
+<a:Rect>((-12487,11676), (11325,17438))</a:Rect>
 <a:ListOfPoints>((-9975,17438),(-9975,12263),(11325,12263))</a:ListOfPoints>
 <a:CornerStyle>2</a:CornerStyle>
 <a:ArrowStyle>8</a:ArrowStyle>
@@ -1414,7 +1414,7 @@ Shadow=0</a:DisplayPreferences>
 <o:DependencySymbol Id="o24">
 <a:CreationDate>1668872824</a:CreationDate>
 <a:ModificationDate>1668872846</a:ModificationDate>
-<a:Rect>((-20340,-5458), (-19740,1463))</a:Rect>
+<a:Rect>((-20540,-5458), (-19540,1463))</a:Rect>
 <a:ListOfPoints>((-20100,1463),(-19980,1463),(-19980,-5458))</a:ListOfPoints>
 <a:CornerStyle>2</a:CornerStyle>
 <a:ArrowStyle>8</a:ArrowStyle>
@@ -1435,7 +1435,7 @@ Shadow=0</a:DisplayPreferences>
 <o:DependencySymbol Id="o27">
 <a:CreationDate>1668872883</a:CreationDate>
 <a:ModificationDate>1668872883</a:ModificationDate>
-<a:Rect>((3000,-2437), (17625,2725))</a:Rect>
+<a:Rect>((3038,-2437), (17625,2725))</a:Rect>
 <a:ListOfPoints>((5550,-2437),(5550,2138),(17625,2138))</a:ListOfPoints>
 <a:CornerStyle>2</a:CornerStyle>
 <a:ArrowStyle>8</a:ArrowStyle>
@@ -1456,7 +1456,7 @@ Shadow=0</a:DisplayPreferences>
 <o:DependencySymbol Id="o30">
 <a:CreationDate>1668872891</a:CreationDate>
 <a:ModificationDate>1668872891</a:ModificationDate>
-<a:Rect>((-16725,-7149), (2212,-2587))</a:Rect>
+<a:Rect>((-16725,-7149), (2174,-2587))</a:Rect>
 <a:ListOfPoints>((-225,-2587),(-225,-6562),(-16725,-6562))</a:ListOfPoints>
 <a:CornerStyle>2</a:CornerStyle>
 <a:ArrowStyle>8</a:ArrowStyle>
@@ -1477,7 +1477,7 @@ Shadow=0</a:DisplayPreferences>
 <o:DependencySymbol Id="o32">
 <a:CreationDate>1668873014</a:CreationDate>
 <a:ModificationDate>1668873053</a:ModificationDate>
-<a:Rect>((-28425,-14746), (-19688,-5850))</a:Rect>
+<a:Rect>((-28425,-14746), (-19726,-5850))</a:Rect>
 <a:ListOfPoints>((-28425,-13500),(-22125,-13500),(-22125,-5850))</a:ListOfPoints>
 <a:CornerStyle>2</a:CornerStyle>
 <a:ArrowStyle>8</a:ArrowStyle>
@@ -1498,7 +1498,7 @@ Shadow=0</a:DisplayPreferences>
 <o:DependencySymbol Id="o35">
 <a:CreationDate>1668873016</a:CreationDate>
 <a:ModificationDate>1668873051</a:ModificationDate>
-<a:Rect>((-19050,-17250), (-6638,-7213))</a:Rect>
+<a:Rect>((-19050,-17250), (-6676,-7213))</a:Rect>
 <a:ListOfPoints>((-9075,-17250),(-9075,-7800),(-19050,-7800))</a:ListOfPoints>
 <a:CornerStyle>2</a:CornerStyle>
 <a:ArrowStyle>8</a:ArrowStyle>
@@ -1519,7 +1519,7 @@ Shadow=0</a:DisplayPreferences>
 <o:DependencySymbol Id="o38">
 <a:CreationDate>1668873017</a:CreationDate>
 <a:ModificationDate>1668873027</a:ModificationDate>
-<a:Rect>((-19949,-16650), (-15075,-7125))</a:Rect>
+<a:Rect>((-19912,-16650), (-15113,-7125))</a:Rect>
 <a:ListOfPoints>((-16650,-16650),(-16650,-11942),(-18375,-11942),(-18375,-7125))</a:ListOfPoints>
 <a:CornerStyle>2</a:CornerStyle>
 <a:ArrowStyle>8</a:ArrowStyle>
@@ -1541,7 +1541,7 @@ Shadow=0</a:DisplayPreferences>
 <a:CreationDate>1668873019</a:CreationDate>
 <a:ModificationDate>1668873062</a:ModificationDate>
 <a:CenterTextOffset>(-525, -1050)</a:CenterTextOffset>
-<a:Rect>((-23736,-22725), (-18862,-6975))</a:Rect>
+<a:Rect>((-23699,-22725), (-18900,-6975))</a:Rect>
 <a:ListOfPoints>((-20774,-22725),(-20774,-6975))</a:ListOfPoints>
 <a:CornerStyle>2</a:CornerStyle>
 <a:ArrowStyle>8</a:ArrowStyle>
@@ -1563,7 +1563,7 @@ Shadow=0</a:DisplayPreferences>
 <a:CreationDate>1668873143</a:CreationDate>
 <a:ModificationDate>1668873279</a:ModificationDate>
 <a:CenterTextOffset>(2175, 3675)</a:CenterTextOffset>
-<a:Rect>((2925,-26025), (22125,2475))</a:Rect>
+<a:Rect>((2925,-26025), (22087,2475))</a:Rect>
 <a:ListOfPoints>((2925,-26025),(17400,-26025),(17400,2475))</a:ListOfPoints>
 <a:CornerStyle>2</a:CornerStyle>
 <a:ArrowStyle>8</a:ArrowStyle>
@@ -1584,7 +1584,7 @@ Shadow=0</a:DisplayPreferences>
 <o:DependencySymbol Id="o47">
 <a:CreationDate>1668873173</a:CreationDate>
 <a:ModificationDate>1668873283</a:ModificationDate>
-<a:Rect>((-2362,-35446), (13500,-27525))</a:Rect>
+<a:Rect>((75,-34200), (13500,-27525))</a:Rect>
 <a:ListOfPoints>((13500,-34200),(75,-34200),(75,-27525))</a:ListOfPoints>
 <a:CornerStyle>2</a:CornerStyle>
 <a:ArrowStyle>8</a:ArrowStyle>

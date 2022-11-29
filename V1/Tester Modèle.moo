@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?PowerDesigner AppLocale="UTF16" ID="{5D0EE195-C936-490F-9A8E-033CA752C422}" Label="" LastModificationDate="1668881328" Name="Tester Modèle" Objects="16" Symbols="16" Target="Java" TargetLink="Reference" Type="{18112060-1A4B-11D1-83D9-444553540000}" signature="CLD_OBJECT_MODEL" version="15.1.0.2850"?>
+<?PowerDesigner AppLocale="UTF16" ID="{5D0EE195-C936-490F-9A8E-033CA752C422}" Label="" LastModificationDate="1669477160" Name="Tester Modèle" Objects="16" Symbols="16" Target="Java" TargetLink="Reference" Type="{18112060-1A4B-11D1-83D9-444553540000}" signature="CLD_OBJECT_MODEL" version="15.1.0.2850"?>
 <!-- Veuillez ne pas modifier ce fichier -->
 
 <Model xmlns:a="attribute" xmlns:c="collection" xmlns:o="object">
@@ -1386,7 +1386,6 @@ Shadow=0</a:DisplayPreferences>
 <a:CenterTextOffset>(3450, -600)</a:CenterTextOffset>
 <a:Rect>((-1537,-13562), (8063,-9037))</a:Rect>
 <a:ListOfPoints>((-1537,-9037),(2063,-9037),(2063,-13562),(-1537,-13562))</a:ListOfPoints>
-<a:CornerStyle>2</a:CornerStyle>
 <a:ArrowStyle>1</a:ArrowStyle>
 <a:LineColor>128</a:LineColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -1778,9 +1777,9 @@ DISPNAME 0 Arial,8,N</a:FontList>
 <a:Code>Charger_Donnee</a:Code>
 <a:CreationDate>1668878737</a:CreationDate>
 <a:Creator>eljao</a:Creator>
-<a:ModificationDate>1668880298</a:ModificationDate>
+<a:ModificationDate>1669477160</a:ModificationDate>
 <a:Modifier>eljao</a:Modifier>
-<a:TargetModelURL>file:///C|/Users/eljao/OneDrive/Desktop/UML PROJECT/V1/Charger Donnée.moo</a:TargetModelURL>
+<a:TargetModelURL>file:///C|/Users/eljao/OneDrive/Desktop/IID2_2ème_année/UML/UML PROJECT/V1/Charger Donnée.moo</a:TargetModelURL>
 <a:TargetModelID>D1FDA7ED-9CC2-4EA6-8F3B-14DE9BAF9184</a:TargetModelID>
 <a:TargetModelClassID>18112060-1A4B-11D1-83D9-444553540000</a:TargetModelClassID>
 <c:SessionShortcuts>

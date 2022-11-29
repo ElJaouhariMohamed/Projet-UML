@@ -4,21 +4,34 @@
 
 <Workspace>
 	<Local Expanded="Yes">
-		<Model ID="{7D51B3B4-2C91-445F-BC5C-CDD527613814}" Loaded="No" Name="type_modèle" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="séquence_type_modèle.moo"/>
-		<Model Expanded="Yes" ID="{4D0C457A-59BC-490E-B177-511C3BC6A34A}" Loaded="No" Name="Créer_modèle" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="Créer_modèle.moo"/>
+		<Model ID="{7D51B3B4-2C91-445F-BC5C-CDD527613814}" Name="type_modèle" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="../V2/séquence_type_modèle V2.moo"/>
+		<Model ID="{2CCD136D-1CFC-4A4D-9A7A-901324DF107C}" Name="type_modèle_V2" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="../V2/type_modèle_V2.moo"/>
+		<Model ID="{4D0C457A-59BC-490E-B177-511C3BC6A34A}" Loaded="No" Name="Créer_modèle" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="Créer_modèle.moo"/>
+		<Model ID="{0A1D8FAB-58E6-44A5-98AF-4F946D4DF7FC}" Loaded="No" Name="créer_modèle_V2" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="../V3/séquence_créer_modèle_V2.moo"/>
 		<Model ID="{D6A2F265-30E2-4BAE-BD4A-FECE0A614B08}" Loaded="No" Name="Utiliser Modèle" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="Utiliser Modèle.moo"/>
+		<Model ID="{B4D55A4A-5BAA-4524-B1CD-E50948DFE868}" Loaded="No" Name="Utiliser_modèle_V2" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="../V2/Utiliser_modèle_V2.moo"/>
 		<Model ID="{56CD7C4C-7F49-4DFB-8A55-4054B765CF5B}" Loaded="No" Name="Exporter données" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="Exporter données.moo"/>
-		<Model ID="{115BAFCC-0E4B-41CC-8964-6F85C428B45A}" Loaded="No" Name="spécifier modèle" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="spécifier modèle.moo"/>
-		<Model ID="{CA4A5133-DF44-4694-A89D-43817BE48BF4}" Loaded="No" Name="Trainer modèle" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="Trainer Modèle.moo"/>
-		<Model ID="{D1FDA7ED-9CC2-4EA6-8F3B-14DE9BAF9184}" Loaded="No" Name="Charger Donnée" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="Charger Donnée.moo"/>
-		<Model ID="{5D0EE195-C936-490F-9A8E-033CA752C422}" Loaded="No" Name="Tester Modèle" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="Tester Modèle.moo"/>
-		<Model ID="{52545E8F-B6A5-4F3D-981F-2590825FD65F}" Loaded="No" Name="Modifier description" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="Modifier description.moo"/>
-		<Model ID="{11FB1513-B815-4420-9AC1-2E3C563E97B3}" Loaded="No" Name="supprimer modèle" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="supprimer modèle.moo"/>
-		<Model ID="{657FAE35-0B30-4FEC-90A8-B6E3FA4E634B}" Loaded="No" Name="Exporter modèle" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="Exporter modèle.moo"/>
-		<Model ID="{07F6E489-2D91-4B1A-825A-FA8C43E070C5}" Loaded="No" Name="Modifier Nom" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="Modifier Nom.moo"/>
-		<Model ID="{52545E8F-B6A5-4F3D-981F-2590825FD65F}" Loaded="No" Name="Modifier description" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="Modifier description.moo"/>
-		<Model ID="{ED3B63FE-C7E6-4006-99A9-7B1CDD977BE8}" Loaded="No" Name="Gérer modèle" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="Gérer modèle.moo"/>
-		<Model Expanded="Yes" ID="{797A4540-D3D5-46DD-9024-A6886B672CF6}" Name="Modèle de domaine" Selected="Yes" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="Modèle de domaine.moo"/>
+		<Model ID="{6CC96AA1-C46F-4BE1-B4B4-2F7B1F29610F}" Loaded="No" Name="Exportée_données_V2" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="../V2/Exportée_donnée_V2.moo"/>
+		<Model ID="{115BAFCC-0E4B-41CC-8964-6F85C428B45A}" Name="spécifier modèle V2" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="../V3/spécifier modèle.moo"/>
+		<Model ID="{CA4A5133-DF44-4694-A89D-43817BE48BF4}" Name="Trainer modèle" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="Trainer Modèle.moo"/>
+		<Model Expanded="Yes" ID="{64C6C122-1E6D-46A0-819B-F4AF07836800}" Name="trainer_modèle_V2" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="../V2/trainer_modèle_V2.moo"/>
+		<Model ID="{B05AB5E5-AB28-4EE0-93C5-AFC4AA04E4F9}" Name="use case" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="USE_CASE.moo"/>
+		<Model ID="{D1FDA7ED-9CC2-4EA6-8F3B-14DE9BAF9184}" Name="Charger Donnée" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="Charger Donnée.moo"/>
+		<Model ID="{5D0EE195-C936-490F-9A8E-033CA752C422}" Name="Tester Modèle" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="Tester Modèle.moo"/>
+		<Model ID="{2A525EDB-438F-4B55-BCB8-669CB1240A6C}" Name="Tester modèle V2" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="../V2/tester modèle V2.moo"/>
+		<Model Expanded="Yes" ID="{BC3DF144-88BA-451F-8969-38FF234267B6}" Name="Charger Donnée V2" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="../V2/Charger Donnée V2.moo"/>
+		<Model ID="{4C06182C-CC1C-4728-B06E-6EA94820BF48}" Name="Modifier description V2" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="../V2/Modifier description V2.moo"/>
+		<Model ID="{11FB1513-B815-4420-9AC1-2E3C563E97B3}" Name="supprimer modèle" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="supprimer modèle.moo"/>
+		<Model ID="{497C701A-3E78-4DC9-9859-54844D3DF7A9}" Name="Supprimer modèle V2" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="../V2/Supprimer modèle V2.moo"/>
+		<Model ID="{657FAE35-0B30-4FEC-90A8-B6E3FA4E634B}" Name="Exporter modèle" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="Exporter modèle.moo"/>
+		<Model ID="{25A5563F-CC3A-4719-87D8-627AE0E5EE7D}" Name="exporter modèle V2" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="../V2/exporter modèle V2.moo"/>
+		<Model ID="{07F6E489-2D91-4B1A-825A-FA8C43E070C5}" Name="Modifier Nom" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="Modifier Nom.moo"/>
+		<Model ID="{AEF2334C-4431-4544-9C05-8CFC11F7CC84}" Name="Modifier Nom V2" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="../V2/Modifier Nom V2.moo"/>
+		<Model ID="{52545E8F-B6A5-4F3D-981F-2590825FD65F}" Name="Modifier description" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="Modifier description.moo"/>
+		<Model ID="{ED3B63FE-C7E6-4006-99A9-7B1CDD977BE8}" Name="Gérer modèle" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="Gérer modèle.moo"/>
+		<Model Expanded="Yes" ID="{797A4540-D3D5-46DD-9024-A6886B672CF6}" Loaded="No" Name="Modèle de domaine" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="Modèle de domaine.moo"/>
+		<Model ID="{BB780075-466A-4D34-9E82-3683195344C3}" Loaded="No" Name="Modèle de domaine V2" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="../V2/Modèle de domaine V2.moo"/>
+		<Model Expanded="Yes" ID="{195C369E-E5EF-46DD-BA77-0FA735C5F065}" Name="Modèle de domaine V3" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="../V3/Modèle de domaine V3.moo"/>
 	</Local>
 	<BrowserModule Name="Référentiel"/>
 </Workspace>

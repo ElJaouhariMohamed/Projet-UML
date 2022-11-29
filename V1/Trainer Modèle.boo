@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?PowerDesigner AppLocale="UTF16" ID="{CA4A5133-DF44-4694-A89D-43817BE48BF4}" Label="" LastModificationDate="1668880828" Name="Trainer modèle" Objects="15" Symbols="16" Target="Java" TargetLink="Reference" Type="{18112060-1A4B-11D1-83D9-444553540000}" signature="CLD_OBJECT_MODEL" version="15.1.0.2850"?>
+<?PowerDesigner AppLocale="UTF16" ID="{CA4A5133-DF44-4694-A89D-43817BE48BF4}" Label="" LastModificationDate="1669474904" Name="Trainer modèle" Objects="16" Symbols="15" Target="Java" TargetLink="Reference" Type="{18112060-1A4B-11D1-83D9-444553540000}" signature="CLD_OBJECT_MODEL" version="15.1.0.2850"?>
 <!-- Veuillez ne pas modifier ce fichier -->
 
 <Model xmlns:a="attribute" xmlns:c="collection" xmlns:o="object">
@@ -12,7 +12,7 @@
 <a:Code>Trainer_modele</a:Code>
 <a:CreationDate>1668878124</a:CreationDate>
 <a:Creator>eljao</a:Creator>
-<a:ModificationDate>1668880828</a:ModificationDate>
+<a:ModificationDate>1668880874</a:ModificationDate>
 <a:Modifier>eljao</a:Modifier>
 <a:PackageOptionsText>[FolderOptions]
 
@@ -985,7 +985,7 @@ NameToCode=No</a:ModelOptionsText>
 <a:Code>Trainer_modele</a:Code>
 <a:CreationDate>1668878124</a:CreationDate>
 <a:Creator>eljao</a:Creator>
-<a:ModificationDate>1668880421</a:ModificationDate>
+<a:ModificationDate>1668880874</a:ModificationDate>
 <a:Modifier>eljao</a:Modifier>
 <a:DisplayPreferences>[DisplayPreferences]
 
@@ -1587,9 +1587,56 @@ DISPNAME 0 Arial,8,U</a:FontList>
 <o:UMLObject Ref="o26"/>
 </c:Object>
 </o:UMLObjectSequenceSymbol>
+<o:InteractionReferenceSymbol Id="o27">
+<a:CreationDate>1668880867</a:CreationDate>
+<a:ModificationDate>1668880874</a:ModificationDate>
+<a:Rect>((-22800,12563), (23025,6563))</a:Rect>
+<a:AutoAdjustToText>0</a:AutoAdjustToText>
+<a:LineColor>15257808</a:LineColor>
+<a:FillColor>13890042</a:FillColor>
+<a:ShadowColor>12632256</a:ShadowColor>
+<a:FontList>STRN 0 Arial,8,N
+DISPNAME 0 Arial,8,N</a:FontList>
+<a:BrushStyle>6</a:BrushStyle>
+<a:GradientFillMode>1031</a:GradientFillMode>
+<a:GradientEndColor>16777215</a:GradientEndColor>
+<c:AttachedLifelines>
+<o:ActorSequenceSymbol Ref="o16"/>
+<o:UMLObjectSequenceSymbol Ref="o15"/>
+<o:UMLObjectSequenceSymbol Ref="o24"/>
+</c:AttachedLifelines>
+<c:Object>
+<o:InteractionReference Ref="o28"/>
+</c:Object>
+</o:InteractionReferenceSymbol>
 </c:Symbols>
 </o:SequenceDiagram>
+<o:Shortcut Id="o29">
+<a:ObjectID>889D788D-2E77-4C99-A539-7358D9E70ACE</a:ObjectID>
+<a:Name>Chargée donnée</a:Name>
+<a:Code>Chargee_donnee</a:Code>
+<a:CreationDate>1668880867</a:CreationDate>
+<a:Creator>eljao</a:Creator>
+<a:ModificationDate>1668880874</a:ModificationDate>
+<a:Modifier>eljao</a:Modifier>
+<a:TargetStereotype/>
+<a:TargetID>185ED5D4-C01A-4A45-9264-78D261C4341E</a:TargetID>
+<a:TargetClassID>18112200-1A4B-11D1-83D9-444553540000</a:TargetClassID>
+<a:TargetPackagePath>&lt;Modèle&gt;</a:TargetPackagePath>
+</o:Shortcut>
 </c:SequenceDiagrams>
+<c:InteractionReferences>
+<o:InteractionReference Id="o28">
+<a:ObjectID>C91488D3-3214-4709-96ED-84364A698C63</a:ObjectID>
+<a:CreationDate>1668880867</a:CreationDate>
+<a:Creator>eljao</a:Creator>
+<a:ModificationDate>1668880874</a:ModificationDate>
+<a:Modifier>eljao</a:Modifier>
+<c:ReferencedDiagram>
+<o:Shortcut Ref="o29"/>
+</c:ReferencedDiagram>
+</o:InteractionReference>
+</c:InteractionReferences>
 <c:Actors>
 <o:Actor Id="o21">
 <a:ObjectID>4177CA04-D836-46D9-A63B-28498C39F2A6</a:ObjectID>
@@ -1639,11 +1686,11 @@ DISPNAME 0 Arial,8,U</a:FontList>
 </o:Message>
 <o:Message Id="o17">
 <a:ObjectID>9AB8D808-B0B4-46BE-B432-1062427A7113</a:ObjectID>
-<a:Name>Message_2</a:Name>
-<a:Code>Message_2</a:Code>
+<a:Name>affiche_trainer()</a:Name>
+<a:Code>affiche_trainer__</a:Code>
 <a:CreationDate>1668878237</a:CreationDate>
 <a:Creator>eljao</a:Creator>
-<a:ModificationDate>1668878237</a:ModificationDate>
+<a:ModificationDate>1669316337</a:ModificationDate>
 <a:Modifier>eljao</a:Modifier>
 <c:Object1>
 <o:Actor Ref="o21"/>
@@ -1688,13 +1735,13 @@ DISPNAME 0 Arial,8,U</a:FontList>
 </o:Message>
 </c:Messages>
 <c:TargetModels>
-<o:TargetModel Id="o27">
+<o:TargetModel Id="o30">
 <a:ObjectID>202CA629-942B-47BF-BE9E-9897136219EE</a:ObjectID>
 <a:Name>Java</a:Name>
 <a:Code>Java</a:Code>
 <a:CreationDate>1668878124</a:CreationDate>
 <a:Creator>eljao</a:Creator>
-<a:ModificationDate>1668878124</a:ModificationDate>
+<a:ModificationDate>1669474904</a:ModificationDate>
 <a:Modifier>eljao</a:Modifier>
 <a:TargetModelURL>file:///%_OBJLANG%/java5-j2ee14.xol</a:TargetModelURL>
 <a:TargetModelID>0DEDDB90-46E2-45A0-886E-411709DA0DC9</a:TargetModelID>
@@ -1703,19 +1750,35 @@ DISPNAME 0 Arial,8,U</a:FontList>
 <o:Shortcut Ref="o3"/>
 </c:SessionShortcuts>
 </o:TargetModel>
-<o:TargetModel Id="o28">
+<o:TargetModel Id="o31">
 <a:ObjectID>7B45D8DD-1C8E-4562-888F-404309962031</a:ObjectID>
 <a:Name>WSDL for Java</a:Name>
 <a:Code>WSDLJava</a:Code>
 <a:CreationDate>1668878124</a:CreationDate>
 <a:Creator>eljao</a:Creator>
-<a:ModificationDate>1668878124</a:ModificationDate>
+<a:ModificationDate>1669474904</a:ModificationDate>
 <a:Modifier>eljao</a:Modifier>
 <a:TargetModelURL>file:///%_XEM%/WSDLJ2EE.xem</a:TargetModelURL>
 <a:TargetModelID>C8F5F7B2-CF9D-4E98-8301-959BB6E86C8A</a:TargetModelID>
 <a:TargetModelClassID>186C8AC3-D3DC-11D3-881C-00508B03C75C</a:TargetModelClassID>
 <c:SessionShortcuts>
 <o:Shortcut Ref="o4"/>
+</c:SessionShortcuts>
+</o:TargetModel>
+<o:TargetModel Id="o32">
+<a:ObjectID>6933506A-D0FD-45CD-8082-5759E60C1141</a:ObjectID>
+<a:Name>Charger Donnée</a:Name>
+<a:Code>Charger_Donnee</a:Code>
+<a:ExtractionID>323036416</a:ExtractionID>
+<a:CreationDate>1668880874</a:CreationDate>
+<a:Creator>eljao</a:Creator>
+<a:ModificationDate>1668880874</a:ModificationDate>
+<a:Modifier>eljao</a:Modifier>
+<a:TargetModelURL>file:///C|/Users/eljao/OneDrive/Desktop/UML PROJECT/V1/Charger Donnée.moo</a:TargetModelURL>
+<a:TargetModelID>D1FDA7ED-9CC2-4EA6-8F3B-14DE9BAF9184</a:TargetModelID>
+<a:TargetModelClassID>18112060-1A4B-11D1-83D9-444553540000</a:TargetModelClassID>
+<c:SessionShortcuts>
+<o:Shortcut Ref="o29"/>
 </c:SessionShortcuts>
 </o:TargetModel>
 </c:TargetModels>
