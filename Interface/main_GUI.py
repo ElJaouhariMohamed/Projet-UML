@@ -42,8 +42,8 @@ class f_main(tk.Frame):
 
     def readModules(self):
         modules = []
-        if(os.path.exists('.\\modules\\')):
-            orglist = os.listdir('.\\modules\\')
+        if(os.path.exists('.\\modeles\\')):
+            orglist = os.listdir('.\\modeles\\')
             for ele in orglist : 
                 if ele.endswith(self.moduleExt):
                     modules.append(ele)
@@ -78,7 +78,6 @@ class mainRoot():
         self.root.grid_slaves()[0].grid_forget()
         if frame not in self.frames.keys() :
             if self.states[frame]=='add':
-
                 self.frames[frame] = model_creation(self.root).create()
             if self.states[frame]=='use':
                 print(self.f__main.model.get())

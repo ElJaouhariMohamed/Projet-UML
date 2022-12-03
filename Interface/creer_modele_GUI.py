@@ -57,15 +57,15 @@ class model_creation :
         label_fct_activation = ttk.Label(frame1,text="fonction d'activation : ")
         label_fct_activation.grid(row=1,column=3)
         fct_activation = ttk.Combobox(frame1, width = 15, textvariable = self.typeFctA)
-        fct_activation['values'] = (' Heaviside ',' Softmax ', ' Sigmoide',' tanh ')
+        fct_activation['values'] = ('relu','softmax', 'sigmoide','tanh')
         fct_activation.grid(row=1,column=4)
         
         # Fonction d'apprentissage
         self.typeFctAp = tk.StringVar()
-        label_fct_apprentissage = ttk.Label(frame1,text="fonction d'activation : ")
+        label_fct_apprentissage = ttk.Label(frame1,text="fonction d'apprentissage : ")
         label_fct_apprentissage.grid(row=2,column=3)
         fct_apprentissage = ttk.Combobox(frame1, width = 15, textvariable = self.typeFctAp)
-        fct_apprentissage['values'] = (' Back-propagation',' type 2', ' type 3',' type 4')
+        fct_apprentissage['values'] = (' SGD ',' Adam ')
         fct_apprentissage.grid(row=2,column=4)
 
         # Frame pour : Ajouter les couches,importer donnée, Trainer
@@ -74,13 +74,18 @@ class model_creation :
 
         #frame pour : Les couches (si le perceptron multicouche est selectionné)
         self.frame3 = ttk.Frame(frame2)
-        label_couches = ttk.Label(self.frame3,text='Nombre de couches')
+        label_couches = ttk.Label(self.frame3,text='Nombre de couches : ')
         label_couches.grid(row=0,column=0)
-        self.ncouches = tk.IntVar()
+        self.ncouches = tk.IntVar(self.mainFrame)
         self.ncouches.set(0)
         self.ncouches.trace("w",lambda x,y,z: self.controler.checkIfInt(self.ncouches,x,y,z))
         couches = ttk.Entry(self.frame3,textvariable=self.ncouches)
         couches.grid(row=0,column=1)
+        label_specouches = ttk.Label(self.frame3,text='Nombre de neurons par couche (séparer par ,) : ')
+        label_couches.grid(row=1,column=0)
+        self.specouches = tk.StringVar(self.mainFrame)
+        spcouches = ttk.Entry(self.frame3,textvariable=self.specouches)
+        spcouches.grid(row=1,column=1)
 
         # import data csv
         bouton_data_csv = ttk.Button(frame2,text=" Selectionner ",command = lambda : self.controler.loadData())
@@ -88,10 +93,18 @@ class model_creation :
         tk.Label(frame2,textvariable=self.selFile).grid(row=1,column=0)
         
         bouton_data_csv.grid(row=1,column=1)
+        
+        #target : la valeur cible 
+
+        ttk.Label(frame2,text='Colonne Cible : ').grid(row=2,column=0)
+        self.target = tk.StringVar()
+        self.targetCombo = ttk.Combobox(frame2,textvariable=self.target,width=30)
+        self.targetCombo.grid(row=2,column=1)
+        
 
         # Créer et trainer le modèle
         bouton_créer_trainer_modèle = ttk.Button(frame2, text=" créer et entrainer le modèle ", command = lambda : self.controler.createModel() )
-        bouton_créer_trainer_modèle.grid(row=2,column=0)
+        bouton_créer_trainer_modèle.grid(row=3,column=0)
 
         return self.mainFrame
 

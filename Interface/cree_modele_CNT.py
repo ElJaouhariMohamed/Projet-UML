@@ -68,11 +68,12 @@ class c_cree:
         file = askopenfilename(filetypes =[('CSV file','*.csv')],parent=self.frame.mainFrame, initialdir=os.getcwd(), title='Selectionner votre dataset (CSV)')
         if(os.path.exists(file)):
             self.frame.selFile.set(file)
-            self.traindDataFrame = pd.read_csv(file)
-            
-            
+            self.trainDataFrame = pd.read_csv(file)
+            self.frame.targetCombo['values'] = self.trainDataFrame.columns.to_list()
         else: 
-            raise FileNotFoundError('Erreur : Fichier non trouvée')
+            mb.showerror(title='Erreur ',message='Erreur : Fichier non trouvée')
+            
+
     def createModel(self):
         nom = self.frame.entry_nom.get().strip()[:60]
         desc = self.frame.entry_Description.get(1.0,tk.END).strip()[:255]
@@ -82,7 +83,59 @@ class c_cree:
         tFctAp = self.frame.typeFctAp.get()[:30]
         nCouches = int(self.frame.ncouches.get()) if tReseau==' P.M.C ' else 0 
         today = datetime.date.today().strftime("%d-%m-%Y")
+        target = self.frame.target.get()
 
+        if tReseau == ' P.M.C ':
+            speneu = self.frame.specouches.get().strip().split(',')
+            if (len(speneu)!=nCouches):
+                mb.showerror(title='Erreur ',message='Veuillez specifier le nombre de neurons pour chaque couche')
+        if target not in self.trainDataFrame.columns.to_list :
+            mb.showerror(title='Erreur ',message='Veuillez choisir une colonne cibile correcte')
+            return
+
+        n = len(self.trainDataFrame.columns.to_list()) - 1
+        if (self.trainDataFrame.dtypes[target] == 'object'):
+            m = len(self.trainDataFrame[target].unique().tolist())
+        else : 
+            m = 1
+        
+        import tensorflow as tf
+        from tensorflow.keras.models import Sequential
+        from tensorflow.keras.layers import Dense, Activation
+        from tensorflow.keras.optimizers import Adam,SGD
+        from sklearn.preprocessing import MinMaxScaler
+        from sklearn.model_selection import train_test_split
+
+        model = Sequential()
+        if(tReseau == ' Perceptron '):
+            model.add(Dense(units = n, activation=tFctA))
+        elif(tReseau == ' P.M.C '):
+            for i in range(nCouches):
+                model.add(Dense(units = speneu[i], activation=tFctA))
+        model.add(Dense(units = m, activation = tFctA))
+
+        opt = SGD(learning_rate=0.1) if tFctAp==' SGD ' else Adam()
+        ls = 'binary_crossentropy' if m==2 else 'categorical_crossentropy'
+        model.compile(optimizer=opt,loss=ls,metrics=["accuracy"])
+
+        #entrainement : 
+        mb.showinfo('Entrainement Commence','Le modèle est en entrainement ...')
+
+        scaler = MinMaxScaler()
+        
+        X_train,y_train,X_test,y_test = train_test_split(self.trainDataFrame ,test_size=0.25,shuffle=True)
+        X_train = scaler.fit_transform(X_train)
+        X_test = scaler.fit_transform(X_test)
+
+        model.fit(x=X_train, 
+          y=y_train, 
+          epochs=600,
+          validation_data=(X_test, y_test), 
+          verbose=0,
+        )
+
+        nom = nom.replace(' ','_')
+        model.save(f'/models/{nom}.h5')
         print(nom,desc,createur,tReseau,tFctA,tFctAp,nCouches,today,sep='\n')
 
     def checkCombo(self,ev):
@@ -94,7 +147,7 @@ class c_cree:
             except:
                 pass
 
-    def checkIfInt(self,v,x,y,z):
+    def checkIfInt(self,v,x,y,z): #verifier que le nombre de couches intermidieres est un entier
         print(x,y,z)
         try : 
             if(v.get()!= ''):
@@ -102,5 +155,7 @@ class c_cree:
         except:
             v.set(0)
             mb.showerror(title='Erreur ',message='Veuillez entrer un entier')
+
+    
 
 
