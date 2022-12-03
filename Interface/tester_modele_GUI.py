@@ -6,16 +6,17 @@ import tkinter.ttk as ttk
 
 class model_test :
 
-    def __init__(self):
-        self.window = tk.Tk()
+    def __init__(self,master):
+        self.window = master
 
     def create(self):
 
         # config creation du modèle
         self.window.title(" modèle testing ")
+        mainFrame = ttk.Frame(self.window)
 
         # frame contenant le Modèle à choisir, data à tester
-        frame1 = ttk.Frame(self.window)
+        frame1 = ttk.Frame(mainFrame)
         frame1.pack()
 
         # choisir le modèle
@@ -35,7 +36,7 @@ class model_test :
         boutton_data_test.grid(row=1,column=1)
 
         # frame contenant boutton du test
-        frame2 = ttk.Frame(self.window)
+        frame2 = ttk.Frame(mainFrame)
         frame2.pack()
 
         # boutton du test
@@ -43,10 +44,7 @@ class model_test :
         boutton_test.pack()
 
         # frame contenant l'affichage des scores de test
-        frame3 = ttk.Frame(self.window)
+        frame3 = ttk.Frame(mainFrame)
         frame3.pack()
 
-        self.window.mainloop()
-
-mod = model_test()
-mod.create()
+        return mainFrame

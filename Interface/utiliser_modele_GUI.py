@@ -6,16 +6,17 @@ import tkinter.ttk as ttk
 
 class model_use :
 
-    def __init__(self):
-        self.window = tk.Tk()
+    def __init__(self,master):
+        self.window = master
 
     def create(self):
 
         # config creation du modèle
         self.window.title(" Utilisation du modèle ")
+        mainFrame = ttk.Frame(self.window)
 
         # frame contenant : choisir le modèle
-        frame1 = ttk.Frame(self.window)
+        frame1 = ttk.Frame(mainFrame)
         frame1.pack()
 
         # choisir le modèle
@@ -28,7 +29,7 @@ class model_use :
         choisir_modèle.grid(row=0,column=1)
 
         # frame qui contiendrea les élèments issues des bouttons : radio_1, radio_2
-        frame3 = ttk.Frame(self.window)
+        frame3 = ttk.Frame(mainFrame)
 
         # radio button 1 : pour entrer sous forme de fichier csv
         radio_1 = ttk.Radiobutton(frame1, text = " fichier .csv ",value=0,command = lambda : self.call_csv(self,frame3))
@@ -43,14 +44,15 @@ class model_use :
         # packing du frame3
         frame3.pack()
         # frame contenant le boutton évaluer
-        frame2 = ttk.Frame(self.window)
+        frame2 = ttk.Frame(mainFrame)
         frame2.pack()
 
         # boutton évaluer
         boutton_évaluer = ttk.Button(frame2,text=" Evaluer ")
         boutton_évaluer.pack()
 
-        self.window.mainloop()
+        return mainFrame
+
 
     def call_csv(self,event,frame3):
 
@@ -76,5 +78,3 @@ class model_use :
         entry_Description = tk.Text(frame3,width=15,height=0.2)
         entry_Description.grid(row=0, column=1)
 
-mod = model_use()
-mod.create()

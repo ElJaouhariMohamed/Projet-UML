@@ -4,18 +4,19 @@ import tkinter.ttk as ttk
 #### interface : créer modèle
 
 
-class model_creation :
+class model_gestion :
 
-    def __init__(self):
-        self.window = tk.Tk()
+    def __init__(self,master):
+        self.window = master
     
     def create(self):
         
         # config creation du modèle
-        self.window.title(" Création du modèle et entrainement ")
+        self.window.title(" Gestion du modèle ")
+        mainFrame = ttk.Frame(self.window)
 
         # frame pour contenir : nom du réseau, Description, Nom de créateur, Type de réseau
-        frame1 = ttk.Frame(self.window)
+        frame1 = ttk.Frame(mainFrame)
         frame1.pack()
 
         # Nom du réseau
@@ -70,24 +71,18 @@ class model_creation :
         fct_apprentissage.grid(row=2,column=4)
 
         # Frame pour : Ajouter les couches,importer donnée, Trainer
-        frame2 = ttk.Frame(self.window)
+        frame2 = ttk.Frame(mainFrame)
         frame2.pack()
 
-        # Ajouter les couches
-        bouton_ajouter_couche = ttk.Button(frame2,text=" Cliquer pour ajouter les couches ")
-        bouton_ajouter_couche.pack()
-
-        # import data csv
-        bouton_data_csv = ttk.Button(frame2, text=" Chargée les données sous format CSV ")
-        bouton_data_csv.pack()
+        #Confirmer modifications
+        Cnf_modifs = ttk.Button(frame2,text=" Confirmer ")
+        Cnf_modifs.pack()
 
         # Créer et trainer le modèle
-        bouton_créer_trainer_modèle = ttk.Button(frame2, text=" créer et entrainer le modèle " )
-        bouton_créer_trainer_modèle.pack()
+        Supprimer = ttk.Button(frame2, text=" Supprimer " )
+        Supprimer.pack()
+
+        return mainFrame
 
 
-        self.window.mainloop()
-
-mod = model_creation()
-mod.create()
     
