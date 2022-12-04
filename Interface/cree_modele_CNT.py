@@ -18,7 +18,7 @@ class c_cree:
     def checkDb(self):
         creeTModeles = """CREATE TABLE modeles (
                     id INTEGER primary key AUTOINCREMENT,
-                    nom CHAR(60) NOT NULL,
+                    nom CHAR(60) NOT NULL unique,
                     description CHAR(255) NOT NULL,
                     createur CHAR(60) NOT NULL,
                     created CHAR(15),
@@ -89,7 +89,7 @@ class c_cree:
             speneu = self.frame.specouches.get().strip().split(',')
             if (len(speneu)!=nCouches):
                 mb.showerror(title='Erreur ',message='Veuillez specifier le nombre de neurons pour chaque couche')
-        if target not in self.trainDataFrame.columns.to_list :
+        if target not in self.trainDataFrame.columns.to_list() :
             mb.showerror(title='Erreur ',message='Veuillez choisir une colonne cibile correcte')
             return
 
@@ -98,6 +98,7 @@ class c_cree:
             m = len(self.trainDataFrame[target].unique().tolist())
         else : 
             m = 1
+        print(n,m)
         
         import tensorflow as tf
         from tensorflow.keras.models import Sequential
@@ -122,8 +123,9 @@ class c_cree:
         mb.showinfo('Entrainement Commence','Le modèle est en entrainement ...')
 
         scaler = MinMaxScaler()
-        
-        X_train,y_train,X_test,y_test = train_test_split(self.trainDataFrame ,test_size=0.25,shuffle=True)
+        X = self.trainDataFrame.drop([target],axis=1)
+        Y = self.trainDataFrame[target]
+        X_train,X_test,y_train,y_test = train_test_split(X,Y,test_size=0.25)
         X_train = scaler.fit_transform(X_train)
         X_test = scaler.fit_transform(X_test)
 
@@ -136,6 +138,9 @@ class c_cree:
 
         nom = nom.replace(' ','_')
         model.save(f'/models/{nom}.h5')
+
+        con = sql.connect('mods.db')
+        con.execute(f"Insert into modeles(nom,description,createur,created,modified,tested,type,nbCouches,FCT_APP,FCT_AG) values('{nom}','{desc}','{createur}',TO_DATE('{today}','DD-MM-YYYY'),TO_DATE('{today}','DD-MM-YYYY'),0,'{tReseau}',{nCouches+2},'{tFctAp}','{tFctA}')")
         print(nom,desc,createur,tReseau,tFctA,tFctAp,nCouches,today,sep='\n')
 
     def checkCombo(self,ev):
