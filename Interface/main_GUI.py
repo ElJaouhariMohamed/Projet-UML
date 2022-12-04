@@ -31,13 +31,14 @@ class f_main(tk.Frame):
                 b.grid(row = 0,column=buttons.index(b))
             choices.grid(column = 0, row = 0)
             menu = tk.Frame(self)
-            for i in range(len(m)%3+1):
+            for i in range(len(m)%3):
                 for j in range(3):
-                    if i+j >len(m): break
+                    if i+j >len(m)-1: break
                     fm = tk.Frame(menu)
                     tk.Radiobutton(fm,value=m[i+j],variable=self.model).grid(row=0,column=0)
                     tk.Label(fm,text = os.path.basename(m[i+j]),justify='center',font=('Times',12)).grid(row=0,column=1)
                     fm.grid(row=i,column=j)
+                if i+j >len(m)-1: break
             menu.grid(row = 1,column = 0)
 
     def readModules(self):
@@ -95,7 +96,6 @@ class mainRoot():
         self.frames[frame].grid(row=1,column=0)
 
 if __name__=='__main__':
-    try :
+    
         mainRoot()
-    except Exception as ex: 
-        mb.showerror(title='Erreur ',message=ex)
+    

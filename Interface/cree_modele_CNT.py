@@ -21,8 +21,8 @@ class c_cree:
                     nom CHAR(60) NOT NULL unique,
                     description CHAR(255) NOT NULL,
                     createur CHAR(60) NOT NULL,
-                    created CHAR(15),
-                    modified CHAR(15),
+                    created CHAR(20),
+                    modified CHAR(20),
                     tested INTEGER DEFAULT 0,
                     type CHAR(30),
                     nbCouches INTEGER,
@@ -32,8 +32,8 @@ class c_cree:
         creeTTestes = """CREATE TABLE tests (
                     id_test INTEGER PRIMARY KEY AUTOINCREMENT,
                     testFile CHAR(60) NOT NULL,
-                    testStart Date NOT NULL,
-                    testDurr float NOT NULL,
+                    testStart CHAR(20) NOT NULL,
+                    testDurrHrs float NOT NULL,
                     testScorename CHAR(30) NOT NULL,
                     testScoreValue float NOT NULL,
                     id_model INTEGER ,
@@ -82,8 +82,10 @@ class c_cree:
         tFctA = self.frame.typeFctA.get()[:30]
         tFctAp = self.frame.typeFctAp.get()[:30]
         nCouches = int(self.frame.ncouches.get()) if tReseau==' P.M.C ' else 0 
-        today = datetime.date.today().strftime("%d-%m-%Y")
+        today = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
         target = self.frame.target.get()
+
+        if 'nCouches' == 0 and tReseau == ' P.M.C ' : tReseau = ' Perceptron '
 
         if tReseau == ' P.M.C ':
             speneu = self.frame.specouches.get().strip().split(',')
@@ -98,7 +100,6 @@ class c_cree:
             m = len(self.trainDataFrame[target].unique().tolist())
         else : 
             m = 1
-        print(n,m)
         
         import tensorflow as tf
         from tensorflow.keras.models import Sequential
@@ -108,9 +109,8 @@ class c_cree:
         from sklearn.model_selection import train_test_split
 
         model = Sequential()
-        if(tReseau == ' Perceptron '):
-            model.add(Dense(units = n, activation=tFctA))
-        elif(tReseau == ' P.M.C '):
+        model.add(Dense(units = n, activation=tFctA))
+        if(tReseau == ' P.M.C '):
             for i in range(nCouches):
                 model.add(Dense(units = speneu[i], activation=tFctA))
         model.add(Dense(units = m, activation = tFctA))
@@ -125,22 +125,25 @@ class c_cree:
         scaler = MinMaxScaler()
         X = self.trainDataFrame.drop([target],axis=1)
         Y = self.trainDataFrame[target]
+        Y = pd.get_dummies(Y)
         X_train,X_test,y_train,y_test = train_test_split(X,Y,test_size=0.25)
         X_train = scaler.fit_transform(X_train)
-        X_test = scaler.fit_transform(X_test)
-
+        X_test = scaler.transform(X_test)
         model.fit(x=X_train, 
           y=y_train, 
-          epochs=600,
+          epochs=5,
           validation_data=(X_test, y_test), 
           verbose=0,
         )
 
         nom = nom.replace(' ','_')
-        model.save(f'/models/{nom}.h5')
+        path = f'./modeles/{nom}.h5'
+        model.save(path)
 
         con = sql.connect('mods.db')
-        con.execute(f"Insert into modeles(nom,description,createur,created,modified,tested,type,nbCouches,FCT_APP,FCT_AG) values('{nom}','{desc}','{createur}',TO_DATE('{today}','DD-MM-YYYY'),TO_DATE('{today}','DD-MM-YYYY'),0,'{tReseau}',{nCouches+2},'{tFctAp}','{tFctA}')")
+        con.execute(f"Insert into modeles(nom,description,createur,created,modified,tested,type,nbCouches,FCT_APP,FCT_AG) values('{nom}','{desc}','{createur}','{today}','{today}',0,'{tReseau}',{nCouches+2},'{tFctAp}','{tFctA}')")
+        con.commit()
+        con.close()
         print(nom,desc,createur,tReseau,tFctA,tFctAp,nCouches,today,sep='\n')
 
     def checkCombo(self,ev):
