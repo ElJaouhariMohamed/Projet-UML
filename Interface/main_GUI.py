@@ -31,6 +31,7 @@ class f_main(tk.Frame):
                 b.grid(row = 0,column=buttons.index(b))
             choices.grid(column = 0, row = 0)
             menu = tk.Frame(self)
+            self.model.set(m[0])
             for i in range(len(m)%3):
                 for j in range(3):
                     if i+j >len(m)-1: break
