@@ -5,8 +5,8 @@ from creer_modele_GUI import model_creation
 from utiliser_modele_GUI import model_use
 from tester_modele_GUI import model_test
 from gestion_modele_GUI import model_gestion
-from copy import copy,deepcopy
-import sqlite3
+from copy import copy
+
 
 class f_main(tk.Frame):
     def __init__(self, master,c_main,mExt) :
@@ -36,7 +36,7 @@ class f_main(tk.Frame):
                     if i+j >len(m)-1: break
                     fm = tk.Frame(menu)
                     tk.Radiobutton(fm,value=m[i+j],variable=self.model).grid(row=0,column=0)
-                    tk.Label(fm,text = os.path.basename(m[i+j]),justify='center',font=('Times',12)).grid(row=0,column=1)
+                    tk.Label(fm,text = os.path.basename(m[i+j]).split('.h5')[0],justify='center',font=('Times',14)).grid(row=0,column=1)
                     fm.grid(row=i,column=j)
                 if i+j >len(m)-1: break
             menu.grid(row = 1,column = 0)
@@ -74,28 +74,28 @@ class mainRoot():
         headerFrame.grid(row=0,column=0)
 
     def loadframe(self,frame,model=None):
-        print(frame)
         self.root.title('ClassiPy')
         self.root.grid_slaves()[0].grid_forget()
-        if frame not in self.frames.keys() :
-            if self.states[frame]=='add':
+        if self.states[frame]=='main':
+            self.frames[frame] = f_main(self.root,self, '.h5')
+            self.f__main=self.frames[frame] 
+        if self.states[frame]=='add':
                 self.frames[frame] = model_creation(self.root).create()
-            if self.states[frame]=='use':
+        if self.states[frame]=='use':
                 print(self.f__main.model.get())
                 self.frames[frame] = model_use(self.root).create()   
-            if self.states[frame]=='test':
+        if self.states[frame]=='test':
                 print(self.f__main.model.get())
                 self.frames[frame] = model_test(self.root).create() 
-            if self.states[frame]=='gerer':
+        if self.states[frame]=='gerer':
                 print('--- [model] ', self.f__main.model.get())
-                self.frames[frame] = model_gestion(self.root).create()
-            self.frames[frame].grid(row=1,column=0)
-            self.backbutton.configure(state='active')
+                self.frames[frame] = model_gestion(self.root,self.f__main.model.get()).create()
+        self.frames[frame].grid(row=1,column=0)
+        self.backbutton.configure(state='active')
         self.stateHist.append(copy(self.state))
         self.state = frame     
         self.frames[frame].grid(row=1,column=0)
 
 if __name__=='__main__':
-    
         mainRoot()
     
