@@ -27,7 +27,8 @@ class c_cree:
                     type CHAR(30),
                     nbCouches INTEGER,
                     FCT_APP CHAR(30),
-                    FCT_AG CHAR(30)
+                    FCT_AG CHAR(30),
+                    deci_col CHAR(60) NOT NULL
                     );"""
         creeTTestes = """CREATE TABLE tests (
                     id_test INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -81,11 +82,10 @@ class c_cree:
         tReseau = self.frame.typeR.get()[:30]
         tFctA = self.frame.typeFctA.get()[:30]
         tFctAp = self.frame.typeFctAp.get()[:30]
-        nCouches = int(self.frame.ncouches.get()) if tReseau==' P.M.C ' else 0 
+        nCouches = self.frame.ncouches.get() if tReseau==' P.M.C. ' else 0 
         today = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
         target = self.frame.target.get()
-
-        if 'nCouches' == 0 and tReseau == ' P.M.C ' : tReseau = ' Perceptron '
+        if 'nCouches' == 0 and tReseau == ' P.M.C. ' : tReseau = ' Perceptron '
 
         if tReseau == ' P.M.C ':
             speneu = self.frame.specouches.get().strip().split(',')
@@ -112,6 +112,7 @@ class c_cree:
         model.add(Dense(units = n, activation=tFctA))
         if(tReseau == ' P.M.C '):
             for i in range(nCouches):
+                print(i)
                 model.add(Dense(units = speneu[i], activation=tFctA))
         model.add(Dense(units = m, activation = tFctA))
 
@@ -139,12 +140,13 @@ class c_cree:
         nom = nom.replace(' ','_')
         path = f'./modeles/{nom}.h5'
         model.save(path)
+        nCouches += 2
 
         con = sql.connect('mods.db')
-        con.execute(f"Insert into modeles(nom,description,createur,created,modified,tested,type,nbCouches,FCT_APP,FCT_AG) values('{nom}','{desc}','{createur}','{today}','{today}',0,'{tReseau}',{nCouches+2},'{tFctAp}','{tFctA}')")
+        con.execute(f"Insert into modeles(nom,description,createur,created,modified,tested,type,nbCouches,FCT_APP,FCT_AG,deci_col) values('{nom}','{desc}','{createur}','{today}','{today}',0,'{tReseau}',{nCouches},'{tFctAp}','{tFctA}','{target}')")
         con.commit()
         con.close()
-        print(nom,desc,createur,tReseau,tFctA,tFctAp,nCouches,today,sep='\n')
+        mb.showinfo('Modele Cree','Modele '+nom+' cree avec succes !')
 
     def checkCombo(self,ev):
         if(self.frame.typeR.get()==' P.M.C. '):
@@ -156,13 +158,13 @@ class c_cree:
                 pass
 
     def checkIfInt(self,v,x,y,z): #verifier que le nombre de couches intermidieres est un entier
-        print(x,y,z)
         try : 
-            if(v.get()!= ''):
-                i = int(v.get())
+            s = v.get()
+            if(len(s)!=0):
+                int(s)
         except:
-            v.set(0)
-            mb.showerror(title='Erreur ',message='Veuillez entrer un entier')
+            v.delete(0,tk.END)
+            v.insert(0,0)
 
     
 

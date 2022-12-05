@@ -6,7 +6,7 @@ from utiliser_modele_GUI import model_use
 from tester_modele_GUI import model_test
 from gestion_modele_GUI import model_gestion
 from copy import copy
-
+import math
 
 class f_main(tk.Frame):
     def __init__(self, master,c_main,mExt) :
@@ -32,7 +32,7 @@ class f_main(tk.Frame):
             choices.grid(column = 0, row = 0)
             menu = tk.Frame(self)
             self.model.set(m[0])
-            for i in range(len(m)%3):
+            for i in range(math.ceil(len(m)/3)):
                 for j in range(3):
                     if i+j >len(m)-1: break
                     fm = tk.Frame(menu)
@@ -42,7 +42,7 @@ class f_main(tk.Frame):
                 if i+j >len(m)-1: break
             menu.grid(row = 1,column = 0)
 
-    def readModules(self):
+    def readModules(self):#lecture des modeles dans le dossier
         modules = []
         if(os.path.exists('.\\modeles\\')):
             orglist = os.listdir('.\\modeles\\')
@@ -52,7 +52,7 @@ class f_main(tk.Frame):
         return modules
     
 
-class mainRoot():
+class mainRoot():#classe du controleur principale de l'application
     def __init__(self) :
         self.root = tk.Tk()
         self.stateHist = [0]
@@ -66,15 +66,15 @@ class mainRoot():
         self.frames[0] = self.f__main
         self.root.mainloop()
 
-    def prepareHeader(self):
+    def prepareHeader(self):#preparation du header de l'application
         headerFrame = tk.Frame(self.root)
         self.backbutton = tk.Button(headerFrame,text=' ← ',fg="#FFF",bg='#0A4',font=('Times',14), command = lambda : self.loadframe(self.stateHist[-1]),state='disabled')
         self.backbutton.grid(column=0,row=0)
-        tk.Label(headerFrame,text= ' '*20 + 'Classify V1.0' +' '*20,font=('Times',18)).grid(column=1,row=0)
+        tk.Label(headerFrame,text= ' '*20 + 'ClassiPy V1.0' +' '*20,font=('Times',18)).grid(column=1,row=0)
         tk.Button(headerFrame,text=' + ',fg="#FFF",bg='#0CA',font=('Times',14), command = lambda:self.loadframe(1)).grid(column=2,row=0,columnspan=2)
         headerFrame.grid(row=0,column=0)
 
-    def loadframe(self,frame,model=None):
+    def loadframe(self,frame):#lancer la fenetre choisi suivant le dictionaire (defini en dessus) puis la charger sur la fenetre principale (construction + creation des controleur des fenetres)
         self.root.title('ClassiPy')
         self.root.grid_slaves()[0].grid_forget()
         if self.states[frame]=='main':
@@ -83,14 +83,11 @@ class mainRoot():
         if self.states[frame]=='add':
                 self.frames[frame] = model_creation(self.root).create()
         if self.states[frame]=='use':
-                print(self.f__main.model.get())
                 self.frames[frame] = model_use(self.root).create()   
         if self.states[frame]=='test':
-                print(self.f__main.model.get())
-                self.frames[frame] = model_test(self.root).create() 
+                self.frames[frame] = model_test(self.root,self.f__main.model.get()).create() 
         if self.states[frame]=='gerer':
-                print('--- [model] ', self.f__main.model.get())
-                self.frames[frame] = model_gestion(self.root,self.f__main.model.get()).create()
+                self.frames[frame] = model_gestion(self.root,self.f__main.model.get(),self).create()
         self.frames[frame].grid(row=1,column=0)
         self.backbutton.configure(state='active')
         self.stateHist.append(copy(self.state))

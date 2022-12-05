@@ -6,8 +6,9 @@ from gestion_modele_CNT import c_gerer
 
 class model_gestion :
 
-    def __init__(self,master,model):
+    def __init__(self,master,model,c_main):
         self.window = master
+        self.mainCNT = c_main
         self.model = model.split('.h5')[0] 
         self.controler = c_gerer(self,self.model)
     
@@ -86,17 +87,28 @@ class model_gestion :
         fct_apprentissage = ttk.Label(frame1, width = 15, textvariable = self.tFCTAp)
         fct_apprentissage.grid(row=3,column=4)
 
+        # Colonne de décision
+        self.tColDec = tk.StringVar()
+        label_col_dec = ttk.Label(frame1,text="Colonne de décision : ")
+        label_col_dec.grid(row=4,column=3)
+        col_dec = ttk.Label(frame1, width = 15, textvariable = self.tColDec)
+        col_dec.grid(row=4,column=4)
+
         # Frame pour : Ajouter les couches,importer donnée, Trainer
         frame2 = ttk.Frame(mainFrame)
         frame2.pack()
 
         #Confirmer modifications
         Cnf_modifs = ttk.Button(frame2,text=" Confirmer ",command= lambda :self.controler.confModif())
-        Cnf_modifs.pack()
+        Cnf_modifs.grid(row=0,column=0)
 
-        # Créer et trainer le modèle
+        # supprimer le modèle
         Supprimer = ttk.Button(frame2, text=" Supprimer ", command = lambda : self.controler.delMod())
-        Supprimer.pack()
+        Supprimer.grid(row=0,column=1)
+
+        # Exporter le modèle
+        Exporter = ttk.Button(frame2, text=" Exporter ", command = lambda : self.controler.expMod())
+        Exporter.grid(row=0,column=2)
 
         self.controler.fillFrame()
 

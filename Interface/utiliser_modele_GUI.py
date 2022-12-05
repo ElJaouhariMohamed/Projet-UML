@@ -23,10 +23,6 @@ class model_use :
         label_choisir_modèle = ttk.Label(master=frame1,text=" Choisissez le modèle : ")
         label_choisir_modèle.grid(row=0,column=0)
 
-        n = tk.StringVar()
-        choisir_modèle = ttk.Combobox(frame1, width = 15, textvariable = n)
-        choisir_modèle['values'] = (' type 1',' type 2', ' type 3',' type 4')
-        choisir_modèle.grid(row=0,column=1)
 
         # frame qui contiendrea les élèments issues des bouttons : radio_1, radio_2
         frame3 = ttk.Frame(mainFrame)
