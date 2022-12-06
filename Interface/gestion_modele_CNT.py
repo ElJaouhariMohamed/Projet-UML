@@ -8,7 +8,6 @@ class c_gerer():
     def __init__(self,f_gerer,model):
         self.frame = f_gerer
         self.model = model
-        print(model)
         self.readDB()
 
     def readDB(self): #lire la base de données des modeles et capturer les données du modèle actuel

@@ -31,12 +31,12 @@ class f_main(tk.Frame):
                 b.grid(row = 0,column=buttons.index(b))
             choices.grid(column = 0, row = 0)
             menu = tk.Frame(self)
-            self.model.set(m[0])
+            self.model.set(os.path.basename(m[0]).split('.h5')[0])
             for i in range(math.ceil(len(m)/3)):
                 for j in range(3):
                     if i+j >len(m)-1: break
                     fm = tk.Frame(menu)
-                    tk.Radiobutton(fm,value=m[i+j],variable=self.model).grid(row=0,column=0)
+                    tk.Radiobutton(fm,value=os.path.basename(m[i+j]).split('.h5')[0],variable=self.model).grid(row=0,column=0)
                     tk.Label(fm,text = os.path.basename(m[i+j]).split('.h5')[0],justify='center',font=('Times',14)).grid(row=0,column=1)
                     fm.grid(row=i,column=j)
                 if i+j >len(m)-1: break
@@ -44,8 +44,9 @@ class f_main(tk.Frame):
 
     def readModules(self):#lecture des modeles dans le dossier
         modules = []
-        if(os.path.exists('.\\modeles\\')):
-            orglist = os.listdir('.\\modeles\\')
+        path = os.sep.join([os.getcwd(),'modeles'])
+        if(os.path.exists(path)):
+            orglist = os.listdir(path)
             for ele in orglist : 
                 if ele.endswith(self.moduleExt):
                     modules.append(ele)
