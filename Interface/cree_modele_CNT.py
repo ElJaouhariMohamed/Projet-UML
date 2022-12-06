@@ -79,18 +79,19 @@ class c_cree:
         nom = self.frame.entry_nom.get().strip()[:60]
         desc = self.frame.entry_Description.get(1.0,tk.END).strip()[:255]
         createur = self.frame.entry_créateur.get().strip()[:60]
-        tReseau = self.frame.typeR.get()[:30]
+        tReseau = self.frame.typeR.get().strip()[:30]
         tFctA = self.frame.typeFctA.get()[:30]
         tFctAp = self.frame.typeFctAp.get()[:30]
-        nCouches = self.frame.ncouches.get() if tReseau==' P.M.C. ' else 0 
+        nCouches = self.frame.ncouches.get() if tReseau=='P.M.C.' else 0 
         today = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
         target = self.frame.target.get()
-        if 'nCouches' == 0 and tReseau == ' P.M.C. ' : tReseau = ' Perceptron '
-
-        if tReseau == ' P.M.C ':
+        if 'nCouches' == 0 and tReseau == 'P.M.C.' : tReseau = 'Perceptron'
+        print(nCouches)
+        if tReseau == 'P.M.C.':
             speneu = self.frame.specouches.get().strip().split(',')
             if (len(speneu)!=nCouches):
                 mb.showerror(title='Erreur ',message='Veuillez specifier le nombre de neurons pour chaque couche')
+                return
         if target not in self.trainDataFrame.columns.to_list() :
             mb.showerror(title='Erreur ',message='Veuillez choisir une colonne cibile correcte')
             return
@@ -108,13 +109,14 @@ class c_cree:
         from sklearn.preprocessing import MinMaxScaler
         from sklearn.model_selection import train_test_split
 
+        print(speneu)
         model = Sequential()
         model.add(Dense(units = n, activation=tFctA))
-        if(tReseau == ' P.M.C '):
+        if(tReseau == 'P.M.C.'):
             for i in range(nCouches):
-                print(i)
                 model.add(Dense(units = speneu[i], activation=tFctA))
-        model.add(Dense(units = m, activation = tFctA))
+        ftFctA = tFctA if tFctA == 'sigmoid' else 'softmax'
+        model.add(Dense(units = m, activation = ftFctA))
 
         opt = SGD(learning_rate=0.1) if tFctAp==' SGD ' else Adam()
         ls = 'binary_crossentropy' if m==2 else 'categorical_crossentropy'
@@ -123,20 +125,22 @@ class c_cree:
         #entrainement : 
         mb.showinfo('Entrainement Commence','Le modèle est en entrainement ...')
 
-        scaler = MinMaxScaler()
+        #scaler = MinMaxScaler()
         X = self.trainDataFrame.drop([target],axis=1)
         Y = self.trainDataFrame[target]
         Y = pd.get_dummies(Y)
         X_train,X_test,y_train,y_test = train_test_split(X,Y,test_size=0.25)
-        X_train = scaler.fit_transform(X_train)
-        X_test = scaler.transform(X_test)
+        #X_train = scaler.fit_transform(X_train)
+        #X_test = scaler.transform(X_test)
+        from tensorflow.keras.callbacks import EarlyStopping
+        early_stop = EarlyStopping(monitor='val_loss', mode='min', verbose=1, patience=25)
         model.fit(x=X_train, 
           y=y_train, 
-          epochs=5,
+          epochs=5000,
           validation_data=(X_test, y_test), 
           verbose=0,
+          callbacks=[early_stop]
         )
-
         nom = nom.replace(' ','_')
         path = f'./modeles/{nom}.h5'
         model.save(path)

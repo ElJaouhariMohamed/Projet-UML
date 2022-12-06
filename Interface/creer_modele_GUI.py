@@ -57,7 +57,7 @@ class model_creation :
         label_fct_activation = ttk.Label(frame1,text="fonction d'activation : ")
         label_fct_activation.grid(row=1,column=3)
         fct_activation = ttk.Combobox(frame1, width = 15, textvariable = self.typeFctA)
-        fct_activation['values'] = ('relu','softmax', 'sigmoide','tanh')
+        fct_activation['values'] = ('relu','softmax', 'sigmoid','tanh')
         fct_activation.grid(row=1,column=4)
         
         # Fonction d'apprentissage

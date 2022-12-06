@@ -14,16 +14,39 @@ class c_tester():
 
     def tester(self):
         #try :
-            from sklearn.metrics import mean_absolute_error,recall_score,r2_score,roc_auc_score,precision_score,confusion_matrix
+            import numpy as np 
+            from sklearn.metrics import mean_absolute_error,recall_score,r2_score,roc_auc_score,precision_score,confusion_matrix,classification_report
+            from tensorflow.keras.callbacks import EarlyStopping
+            early_stop = EarlyStopping(monitor='loss', mode='min', verbose=1, patience=25)
             path = os.path.abspath(os.sep.join(['.','modeles',self.frame.modele+'.h5']))
             model = tf.keras.models.load_model(path)
+            print(model.summary())
             mb.showinfo('Modele','Modele est charger, le teste est entraine d\'être effectuer!')
-            X_test = self.test_data.drop([self.info[11]],axis=1)
+            X_test = (self.test_data.drop([self.info[11]],axis=1)).values
+            #scaling : 
+            #from sklearn.preprocessing import MinMaxScaler
+            #scaler = MinMaxScaler()
+            print(X_test)
+            #X_test = scaler.fit_transform(X_test)
+            #print(X_test)
+
             y_test = self.test_data[self.info[11]]
-            y_predicted = model.predict(X_test)
-            #print(mean_absolute_error(y_test,y_predicted))
-            print(confusion_matrix(y_test,y_predicted))
-            print(recall_score(y_test,y_predicted))
+            y_predicted = model.predict(X_test,callbacks=[early_stop])
+            print(y_predicted)
+            y_predicted = np.argmax(y_predicted,axis=1)
+            print(y_predicted)
+
+            y_test = pd.get_dummies(y_test)
+            n = y_test.shape[1]
+            print(y_test)
+            y_test = np.argmax(y_test.values,axis=1)
+            print(y_test)
+            if n != 2 : 
+                avg = 'weighted' 
+            else : 
+                avg = 'binary'
+            cr = classification_report(y_predicted,y_test)
+            
         #except : 
         #    mb.showerror('Erreur','Veuillez verifier votre fichier de teste, apparament il n\'est pas compatible avec le modèle sélectionné!')
 
