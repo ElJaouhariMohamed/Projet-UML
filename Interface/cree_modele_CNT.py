@@ -35,8 +35,7 @@ class c_cree:
                     testFile CHAR(60) NOT NULL,
                     testStart CHAR(20) NOT NULL,
                     testDurrHrs float NOT NULL,
-                    testScorename CHAR(30) NOT NULL,
-                    testScoreValue float NOT NULL,
+                    testScorename CHAR(255) NOT NULL
                     id_model INTEGER ,
                     FOREIGN KEY (id_model) References modeles(id)
                     );"""

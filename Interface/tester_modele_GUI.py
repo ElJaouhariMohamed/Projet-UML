@@ -48,6 +48,8 @@ class model_test :
         frame3 = ttk.Frame(mainFrame)
         frame3.pack()
 
-        ttk.Label(frame3,text='')
+        self.report = tk.StringVar()
+        ttk.Label(frame3,textvariable=self.report).pack()
+        
 
         return mainFrame

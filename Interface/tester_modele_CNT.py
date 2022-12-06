@@ -4,6 +4,7 @@ import os
 from tkinter import filedialog as fd,messagebox as mb,NORMAL
 import pandas as pd
 import sqlite3 as sql
+
 class c_tester():
     def __init__(self,frame):
         self.frame = frame
@@ -46,7 +47,15 @@ class c_tester():
             else : 
                 avg = 'binary'
             cr = classification_report(y_predicted,y_test)
-            
+            self.frame.report.set(cr)
+
+            #update DB & save file 
+            con = sql.connect(os.sep.join([os.getcwd(),'mods.db']))
+            query = f'insert into tests values()'
+            con.execute('')
+            con.commit()
+            con.close()
+
         #except : 
         #    mb.showerror('Erreur','Veuillez verifier votre fichier de teste, apparament il n\'est pas compatible avec le modèle sélectionné!')
 
