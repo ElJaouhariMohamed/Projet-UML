@@ -50,6 +50,8 @@ class model_test :
 
         self.report = tk.StringVar()
         ttk.Label(frame3,textvariable=self.report).pack()
-        
+        self.expReport = ttk.Button(frame3,text='Exporter en fichier',command= lambda : self.controler.saveReport())
+        self.expReport['state']= tk.DISABLED
+        self.expReport.pack()
 
         return mainFrame

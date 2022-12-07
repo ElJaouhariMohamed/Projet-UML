@@ -7,6 +7,7 @@ from tester_modele_GUI import model_test
 from gestion_modele_GUI import model_gestion
 from copy import copy
 import math
+import sqlite3 as sql
 
 class f_main(tk.Frame):
     def __init__(self, master,c_main,mExt) :
@@ -55,6 +56,7 @@ class f_main(tk.Frame):
 
 class mainRoot():#classe du controleur principale de l'application
     def __init__(self) :
+        self.checkDb()
         self.root = tk.Tk()
         self.stateHist = [0]
         self.states = {0:'main',1:'add',2:'gerer',3:'test',4:'use'}
@@ -74,6 +76,55 @@ class mainRoot():#classe du controleur principale de l'application
         tk.Label(headerFrame,text= ' '*20 + 'ClassiPy V1.0' +' '*20,font=('Times',18)).grid(column=1,row=0)
         tk.Button(headerFrame,text=' + ',fg="#FFF",bg='#0CA',font=('Times',14), command = lambda:self.loadframe(1)).grid(column=2,row=0,columnspan=2)
         headerFrame.grid(row=0,column=0)
+    
+    def checkDb(self):
+        creeTModeles = """CREATE TABLE modeles (
+                    id INTEGER primary key AUTOINCREMENT,
+                    nom CHAR(60) NOT NULL unique,
+                    description CHAR(255) NOT NULL,
+                    createur CHAR(60) NOT NULL,
+                    created CHAR(20),
+                    modified CHAR(20),
+                    tested INTEGER DEFAULT 0,
+                    type CHAR(30),
+                    nbCouches INTEGER,
+                    FCT_APP CHAR(30),
+                    FCT_AG CHAR(30),
+                    deci_col CHAR(60) NOT NULL
+                    );"""
+        creeTTestes = """CREATE TABLE tests (
+                    id_test INTEGER PRIMARY KEY AUTOINCREMENT,
+                    testFile CHAR(60) NOT NULL,
+                    testStart CHAR(20) NOT NULL,
+                    testDurrHrs float NOT NULL,
+                    testScoreReport CHAR(500) NOT NULL,
+                    id_model INTEGER ,
+                    FOREIGN KEY (id_model) References modeles(id)
+                    );"""
+        try :
+            if(os.path.exists('./mods.db')):
+                con = sql.connect('./mods.db')
+                try : 
+                    con.execute('SELECT * from modeles;')
+                except : 
+                    con.execute(creeTModeles)
+                    print('models created')
+                try : 
+                    con.execute('SELECT * from tests;')
+                except : 
+                    con.execute(creeTTestes)
+                    print('tests created')
+                con.commit()
+                con.close()
+            else:
+                con = sql.connect('./mods.db')
+                con.execute(creeTModeles)
+                con.execute(creeTTestes)
+                con.commit()
+                con.close()
+                print('tests & modeles created!')
+        except :
+            raise sql.DataError('Erreur de base de données')
 
     def loadframe(self,frame):#lancer la fenetre choisi suivant le dictionaire (defini en dessus) puis la charger sur la fenetre principale (construction + creation des controleur des fenetres)
         self.root.title('ClassiPy')

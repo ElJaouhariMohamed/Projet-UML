@@ -13,56 +13,6 @@ import datetime
 class c_cree:
     def __init__(self,f_cree):
         self.frame = f_cree
-        self.checkDb()
-
-    def checkDb(self):
-        creeTModeles = """CREATE TABLE modeles (
-                    id INTEGER primary key AUTOINCREMENT,
-                    nom CHAR(60) NOT NULL unique,
-                    description CHAR(255) NOT NULL,
-                    createur CHAR(60) NOT NULL,
-                    created CHAR(20),
-                    modified CHAR(20),
-                    tested INTEGER DEFAULT 0,
-                    type CHAR(30),
-                    nbCouches INTEGER,
-                    FCT_APP CHAR(30),
-                    FCT_AG CHAR(30),
-                    deci_col CHAR(60) NOT NULL
-                    );"""
-        creeTTestes = """CREATE TABLE tests (
-                    id_test INTEGER PRIMARY KEY AUTOINCREMENT,
-                    testFile CHAR(60) NOT NULL,
-                    testStart CHAR(20) NOT NULL,
-                    testDurrHrs float NOT NULL,
-                    testScorename CHAR(255) NOT NULL
-                    id_model INTEGER ,
-                    FOREIGN KEY (id_model) References modeles(id)
-                    );"""
-        try :
-            if(os.path.exists('./mods.db')):
-                con = sql.connect('./mods.db')
-                try : 
-                    con.execute('SELECT * from modeles;')
-                except : 
-                    con.execute(creeTModeles)
-                    print('models created')
-                try : 
-                    con.execute('SELECT * from tests;')
-                except : 
-                    con.execute(creeTTestes)
-                    print('tests created')
-                con.commit()
-                con.close()
-            else:
-                con = sql.connect('./mods.db')
-                con.execute(creeTModeles)
-                con.execute(creeTTestes)
-                con.commit()
-                con.close()
-                print('tests & modeles created!')
-        except :
-            raise sql.DataError('Erreur de base de données')
         
     def loadData(self):
         file = askopenfilename(filetypes =[('CSV file','*.csv')],parent=self.frame.mainFrame, initialdir=os.getcwd(), title='Selectionner votre dataset (CSV)')
