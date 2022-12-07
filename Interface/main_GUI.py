@@ -84,7 +84,7 @@ class mainRoot():#classe du controleur principale de l'application
         if self.states[frame]=='add':
                 self.frames[frame] = model_creation(self.root).create()
         if self.states[frame]=='use':
-                self.frames[frame] = model_use(self.root).create()   
+                self.frames[frame] = model_use(self.root,self.f__main.model.get()).create()   
         if self.states[frame]=='test':
                 self.frames[frame] = model_test(self.root,self.f__main.model.get()).create() 
         if self.states[frame]=='gerer':
