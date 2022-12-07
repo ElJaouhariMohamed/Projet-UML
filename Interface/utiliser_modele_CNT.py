@@ -45,7 +45,8 @@ class c_utiliser :
             else:
                 try :
                     predicted_data = model.predict(self.data)
-                    predictions = pd.Series(predicted_data.reshape(self.data.shape[0],))
+                #print(predicted_data)
+                #predictions = pd.Series(predicted_data.reshape(self.data.shape[0],))
                 except :
                     tk.messagebox.showerror(title="model",message="problème dans le modèle")
                     return 0
