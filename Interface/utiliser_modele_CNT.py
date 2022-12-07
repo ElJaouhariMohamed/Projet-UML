@@ -87,7 +87,7 @@ class c_utiliser :
         for files in os.listdir("./output/"):
             if (re.search("^Output",files)) :
                 existance =existance+1
-        self.data.to_csv("./output/Output ("+str(existance)+").csv", encoding='utf-8', index=True)
+        self.data.to_csv("./output/Output ("+str(existance)+").csv", encoding='utf-8', index=False)
         global win
         win = tk.Tk()
         frame = tk.Frame(win)
