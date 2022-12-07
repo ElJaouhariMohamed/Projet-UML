@@ -28,7 +28,7 @@ class model_test :
         label_data_test = ttk.Label(master=frame1,text="Data du teste : ")
         label_data_test.grid(row=1,column=0)
         self.selFile = tk.StringVar(mainFrame,None)
-        tk.Label(frame1,textvariable=self.selFile).grid(row=1,column=1)
+        tk.Entry(frame1,textvariable=self.selFile,width=30).grid(row=1,column=1)
 
         boutton_data_test = ttk.Button(frame1,text=" Importer ",command= lambda : self.controler.import_test_data())
         boutton_data_test.grid(row=1,column=2)
@@ -38,20 +38,44 @@ class model_test :
         frame2 = ttk.Frame(mainFrame)
         frame2.pack()
 
+        self.report = tk.StringVar()
+        ttk.Label(frame2,textvariable=self.report).grid(row=0,column=0,columnspan=3)
+
         # boutton du test
         self.boutton_test = ttk.Button(frame2,text=" Tester ",command = lambda : self.controler.tester())
         self.boutton_test['state'] = tk.DISABLED
-        self.boutton_test.pack()
-        
+        self.boutton_test.grid(row=1,column=1)
 
-        # frame contenant l'affichage des scores de test
-        frame3 = ttk.Frame(mainFrame)
-        frame3.pack()
-
-        self.report = tk.StringVar()
-        ttk.Label(frame3,textvariable=self.report).pack()
-        self.expReport = ttk.Button(frame3,text='Exporter en fichier',command= lambda : self.controler.saveReport())
+        self.expReport = ttk.Button(frame2,text='Exporter en fichier',command= lambda : self.controler.saveReport())
         self.expReport['state']= tk.DISABLED
-        self.expReport.pack()
+        self.expReport.grid(row=1,column=2)
+
+        testHistory = ttk.Button(frame2,text='Afficher l\'historique',command= lambda : self.controler.getHistory())
+        testHistory.grid(row=1,column=3)
 
         return mainFrame
+    
+    def showHistory(self,txt):
+        textShow = tk.Toplevel(self.window)
+        textShow.title(self.modele + 'historique de testes')
+        menu = tk.Menu(textShow)
+        textShow.config(menu=menu)
+        fichier = tk.Menu(textShow)
+        fichier.add_command(label='Enregistrer Sous',command= lambda : self.controler.saveHistory(txt))
+        menu.add_cascade(label='Fichier',menu=fichier)
+
+        frame = tk.Frame(textShow)
+        frame.pack()
+
+        scbar = tk.Scrollbar(frame, orient='vertical')
+        scbar.pack(side=tk.RIGHT, fill='y')
+
+        text=tk.Text(frame, font=("Consolas, 12"), yscrollcommand=scbar.set)
+        text.insert(tk.END,txt)
+
+        scbar.config(command=text.yview)
+        text.pack()
+
+
+
+

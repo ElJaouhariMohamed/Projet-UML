@@ -10,9 +10,6 @@ class c_tester():
         self.frame = frame
         self.readDB()
 
-    def updateFrame(self):
-        pass
-
     def tester(self):
         #try :
             tinit = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
@@ -99,4 +96,26 @@ class c_tester():
         self.info = model_info[0]
         cur.close()
         con.close()
+
+    def getHistory(self):
+        con = sql.connect('mods.db')
+        cur = con.cursor()
+        query=f"SELECT * FROM tests WHERE id_model = {self.info[0]};"
+        cur.execute(query)
+        model_tests = cur.fetchall()
+        tst = 'FICHIER - TEMPS DE TEST - Duree de teste en min\n RESULTATS...'
+        for test in model_tests:
+            line = [test[1],test[2],str(round(test[3],4)),test[4]]
+            if (line[0]=='') : line[0] = 'Aucun'
+            tst += '\n' + (' '*4).join(line[:-1]) +'\n' + line[-1]
+        cur.close()
+        con.close()
+        self.frame.showHistory(tst)
+
+    def saveHistory(self,text):
+        file = fd.asksaveasfilename(filetypes =[('Text','.txt')],initialdir=os.getcwd())
+        file += '.txt'
+        with open(file,'w') as f: 
+            f.write(text)
+        
     
