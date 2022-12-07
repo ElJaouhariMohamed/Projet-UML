@@ -14,7 +14,7 @@ class c_tester():
         pass
 
     def tester(self):
-        try :
+        #try :
             tinit = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
             import numpy as np 
             from sklearn.metrics import mean_absolute_error,recall_score,r2_score,roc_auc_score,precision_score,confusion_matrix,classification_report
@@ -52,21 +52,20 @@ class c_tester():
             con = sql.connect(os.sep.join([os.getcwd(),'mods.db']))
             query = f"insert into tests('testFile','testStart','testDurrHrs','testScoreReport','id_model') values('','{tinit}',{dur},'{self.cr}',{self.info[0]});"
             cur = con.execute(query)
-            self.lastid = cur.lastrowid()
+            self.lastid = cur.lastrowid
             con.commit()
             con.close()
 
-        except : 
-            mb.showerror('Erreur','Veuillez verifier votre fichier de teste, apparament il n\'est pas compatible avec le modèle sélectionné!')
+        #except : 
+        #    mb.showerror('Erreur','Veuillez verifier votre fichier de teste, apparament il n\'est pas compatible avec le modèle sélectionné!')
 
     def saveReport(self):
         try :
-            file = fd.asksaveasfilename(filetypes =[('Text','.txt'),('CSV','.csv'),('log','.log')],initialdir=os.getcwd())
+            file = fd.asksaveasfilename(filetypes =[('Text','.txt')],initialdir=os.getcwd())
             if(len(file)>=60): mb.WARNING('Attention','Le fichier ne sera pas enregistrer dans la base de données!')
+            file += '.txt'
             with open(file,'w') as f:
                 txt = self.cr
-                if(file.endswith('.csv')):
-                    txt.replace(' ',',')
                 f.write(txt)
             if(len(file)>=60):file = file[:57]+'...'
             con = sql.connect(os.sep.join([os.getcwd(),'mods.db']))
