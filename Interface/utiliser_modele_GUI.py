@@ -48,6 +48,8 @@ class model_use :
         self.frame2 = ttk.Frame(mainFrame)
         self.frame2.pack()
 
+        self.boutton_extract = ttk.Button(self.frame2,text=" Extracter les données ",state="disabled",command=lambda:self.controler.call_extract())
+        self.boutton_extract.pack()
 
         return mainFrame
 
@@ -70,6 +72,9 @@ class model_use :
         # boutton évaluer
         boutton_évaluer = ttk.Button(self.frame2,text=" Evaluer ",command=lambda:self.controler.call_evaluer(type="csv",entr=0))
         boutton_évaluer.pack()
+
+        self.boutton_extract = ttk.Button(self.frame2,text=" Extracter les données ",state="disabled",command=lambda:self.controler.call_extract())
+        self.boutton_extract.pack()
 
     def call_record(self,event,frame3):
 
