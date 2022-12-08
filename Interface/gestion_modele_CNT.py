@@ -32,6 +32,7 @@ class c_gerer():
         self.frame.tFCTAp.set(self.info[9])
         self.frame.tFCTA.set(self.info[10])
         self.frame.tColDec.set(self.info[11])
+        self.frame.nTests.set(self.info[6])
 
 
     

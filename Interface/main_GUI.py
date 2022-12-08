@@ -44,14 +44,20 @@ class f_main(tk.Frame):
             menu.grid(row = 1,column = 0)
 
     def readModules(self):#lecture des modeles dans le dossier
-        modules = []
-        path = os.sep.join([os.getcwd(),'modeles'])
-        if(os.path.exists(path)):
-            orglist = os.listdir(path)
-            for ele in orglist : 
-                if ele.endswith(self.moduleExt):
-                    modules.append(ele)
-        return modules
+        modeles = []
+        con = sql.connect('mods.db')
+        cur = con.execute('SELECT nom FROM modeles ORDER BY modified DESC;')
+        modelesOrg = cur.fetchall()
+        for modele in modelesOrg : 
+            if(not os.path.exists(os.sep.join([os.getcwd(),'modeles',modele[0]+'.h5']))):
+                id = con.execute(f'Select id from modeles where nom = \'{modeles}\';').fetchall()[0]
+                con.execute(f'Delete from testes where id_model = {id} ;')
+                con.execute(f'Delete from modeles where id = {id};')
+                con.commit()
+            else :
+                modeles.append(modele[0])
+        con.close()
+        return modeles
     
 
 class mainRoot():#classe du controleur principale de l'application

@@ -44,20 +44,26 @@ class model_test :
         # boutton du test
         self.boutton_test = ttk.Button(frame2,text=" Tester ",command = lambda : self.controler.tester())
         self.boutton_test['state'] = tk.DISABLED
-        self.boutton_test.grid(row=1,column=1)
+        self.boutton_test.grid(row=1,column=0)
 
         self.expReport = ttk.Button(frame2,text='Exporter en fichier',command= lambda : self.controler.saveReport())
         self.expReport['state']= tk.DISABLED
-        self.expReport.grid(row=1,column=2)
+        self.expReport.grid(row=1,column=1,columnspan=2)
 
         testHistory = ttk.Button(frame2,text='Afficher l\'historique',command= lambda : self.controler.getHistory())
-        testHistory.grid(row=1,column=3)
+        testHistory.grid(row=2,column=0)
+
+        self.clearHistory = ttk.Button(frame2,text='Supprimer l\'historique',command= lambda : self.controler.clearHistory())
+        self.clearHistory['state'] = tk.DISABLED
+        self.clearHistory.grid(row=2,column=1)
+
+        self.controler.checkHistory()
 
         return mainFrame
     
     def showHistory(self,txt):
         textShow = tk.Toplevel(self.window)
-        textShow.title(self.modele + 'historique de testes')
+        textShow.title(self.modele + ' historique de testes')
         menu = tk.Menu(textShow)
         textShow.config(menu=menu)
         fichier = tk.Menu(textShow)

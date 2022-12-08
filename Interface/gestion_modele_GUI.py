@@ -94,6 +94,13 @@ class model_gestion :
         col_dec = ttk.Label(frame1, width = 15, textvariable = self.tColDec)
         col_dec.grid(row=4,column=4)
 
+        # Nombre de testes
+        self.nTests = tk.StringVar()
+        label_n_tests= ttk.Label(frame1,text="Nombre de tests : ")
+        label_n_tests.grid(row=5,column=3)
+        n_tests = ttk.Label(frame1, width = 15, textvariable = self.nTests)
+        n_tests.grid(row=5,column=4)
+
         # Frame pour : Ajouter les couches,importer donnée, Trainer
         frame2 = ttk.Frame(mainFrame)
         frame2.pack()

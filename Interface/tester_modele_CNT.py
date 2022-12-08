@@ -11,7 +11,7 @@ class c_tester():
         self.readDB()
 
     def tester(self):
-        #try :
+        try :
             tinit = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
             import numpy as np 
             from sklearn.metrics import mean_absolute_error,recall_score,r2_score,roc_auc_score,precision_score,confusion_matrix,classification_report
@@ -51,10 +51,15 @@ class c_tester():
             cur = con.execute(query)
             self.lastid = cur.lastrowid
             con.commit()
+            cur.close()
+            tested = self.info[6]+1
+            query = f"update modeles set tested = {tested} where id = {self.info[0]};"
+            con.execute(query)
+            con.commit()
             con.close()
-
-        #except : 
-        #    mb.showerror('Erreur','Veuillez verifier votre fichier de teste, apparament il n\'est pas compatible avec le modèle sélectionné!')
+            
+        except : 
+            mb.showerror('Erreur','Veuillez verifier votre fichier de teste, apparament il n\'est pas compatible avec le modèle sélectionné!')
 
     def saveReport(self):
         try :
@@ -66,7 +71,7 @@ class c_tester():
                 f.write(txt)
             if(len(file)>=60):file = file[:57]+'...'
             con = sql.connect(os.sep.join([os.getcwd(),'mods.db']))
-            query = f"update tests set testFile='{file}' where id = {self.lastid}"
+            query = f"update tests set testFile='{file}' WHERE id_test = {self.lastid};"
             con.execute(query)
             con.commit()
             con.close()
@@ -103,14 +108,18 @@ class c_tester():
         query=f"SELECT * FROM tests WHERE id_model = {self.info[0]};"
         cur.execute(query)
         model_tests = cur.fetchall()
-        tst = 'FICHIER - TEMPS DE TEST - Duree de teste en min\n RESULTATS...'
+        tst = 'FICHIER - TEMPS DE TEST - Duree de teste en min\n RESULTATS...\n\n'
+        model_tests.reverse()
         for test in model_tests:
             line = [test[1],test[2],str(round(test[3],4)),test[4]]
             if (line[0]=='') : line[0] = 'Aucun'
             tst += '\n' + (' '*4).join(line[:-1]) +'\n' + line[-1]
         cur.close()
         con.close()
-        self.frame.showHistory(tst)
+        if(len(model_tests)==0):
+            mb.showwarning('Aucun test','Aucun teste n\'était encore effectué sur ce modèle')
+        else:
+            self.frame.showHistory(tst)
 
     def saveHistory(self,text):
         file = fd.asksaveasfilename(filetypes =[('Text','.txt')],initialdir=os.getcwd())
@@ -118,4 +127,22 @@ class c_tester():
         with open(file,'w') as f: 
             f.write(text)
         
+    def clearHistory(self):
+        try :
+            con = sql.connect('mods.db')
+            query=f"Delete FROM tests WHERE id_model = {self.info[0]};"
+            con.execute(query)
+            
+            query = f"update modeles set tested = {0} where id = {self.info[0]};"
+            con.execute(query)
+            con.commit()
+            con.close()
+
+            mb.showinfo('Succès', 'L\'historique des testes était supprimé avec succès.')
+        except:
+            mb.showerror('Erreur','La connexion à la base de données est echouée!')
+
+    def checkHistory(self):
+        if(self.info[6]>0):
+            self.frame.clearHistory['state'] = NORMAL #activer clear history s'il y a des testes enregistrées
     
