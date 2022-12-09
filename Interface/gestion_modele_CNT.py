@@ -45,8 +45,8 @@ class c_gerer():
         con.execute(query)
         con.commit()
         con.close()
-        path = f"./modeles/{self.model}.h5"
-        newpath = f"./modeles/{newnom}.h5"
+        path = os.sep.join([os.getcwd(),'modeles',f'{self.model}.h5'])
+        newpath = os.sep.join([os.getcwd(),'modeles',f'{newnom}.h5'])
         os.rename(path,newpath)
         self.model= newnom
         self.frame.model = newnom

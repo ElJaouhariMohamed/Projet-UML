@@ -8,15 +8,15 @@ from gestion_modele_GUI import model_gestion
 from copy import copy
 import math
 import sqlite3 as sql
+from PIL import Image
 
 class f_main(tk.Frame):
-    def __init__(self, master,c_main,mExt) :
-        super().__init__(master)
+    def __init__(self, master,c_main,mExt, **kwargs) :
+        super().__init__(master, **kwargs)
         self.controler = c_main
         self.model = tk.StringVar(master,value = None)
         self.moduleExt = mExt
         m = self.readModules()
-        print(len(m))
         if(len(m) == 0):
             for i in range(3):
                 for j in range(3):
@@ -24,22 +24,23 @@ class f_main(tk.Frame):
                     tk.Label(self,text=txt,font=('Times',24),justify='center').grid(row=i,column=j)
         else : 
             choices = tk.Frame(self)
-            buttons=[tk.Button(choices,text='Gerer',command= lambda :self.controler.loadframe(2))
-                    ,tk.Button(choices,text='Tester',command= lambda :self.controler.loadframe(3))
-                    ,tk.Button(choices,text='Utiliser',command= lambda :self.controler.loadframe(4))
+            buttons=[tk.Button(choices,text=' ⚙ Gerer ',font=('Consolas',10),background='#6F7',command= lambda :self.controler.loadframe(2))
+                    ,tk.Button(choices,text=' ⚡ Tester ',font=('Consolas',10),background='#67F',command= lambda :self.controler.loadframe(3))
+                    ,tk.Button(choices,text=' ⚛ Utiliser ',font=('Consolas',10),background='#F76',command= lambda :self.controler.loadframe(4))
                     ]
             for b in buttons:
-                b.grid(row = 0,column=buttons.index(b))
-            choices.grid(column = 0, row = 0)
+                b.grid(column = buttons.index(b),row=0)
+            choices.grid(column = 0, row = 0,pady=5,padx=2)
             menu = tk.Frame(self)
             self.model.set(os.path.basename(m[0]).split('.h5')[0])
             for i in range(math.ceil(len(m)/3)):
                 for j in range(3):
                     if i+j >len(m)-1: break
-                    fm = tk.Frame(menu)
-                    tk.Radiobutton(fm,value=os.path.basename(m[i+j]).split('.h5')[0],variable=self.model).grid(row=0,column=0)
-                    tk.Label(fm,text = os.path.basename(m[i+j]).split('.h5')[0],justify='center',font=('Times',14)).grid(row=0,column=1)
-                    fm.grid(row=i,column=j)
+                    color = '#FFA500' if j==0 else '#ffa826' if j==1 else '#ffbb54'
+                    fm = tk.Frame(menu,background=color,highlightbackground="#080c1c", highlightthickness=2)
+                    tk.Radiobutton(fm,value=os.path.basename(m[i+j]).split('.h5')[0],background=color,variable=self.model).grid(row=0,column=0)
+                    tk.Label(fm,text = os.path.basename(m[i+j]).split('.h5')[0],background=color ,justify='center',font=('Times',14)).grid(row=0,column=1)
+                    fm.grid(row=i,column=j,ipadx=2,ipady=2)
                 if i+j >len(m)-1: break
             menu.grid(row = 1,column = 0)
 
@@ -64,6 +65,10 @@ class mainRoot():#classe du controleur principale de l'application
     def __init__(self) :
         self.checkDb()
         self.root = tk.Tk()
+        self.icon = tk.PhotoImage(file=os.sep.join([os.getcwd(),'logo_3.png']))
+        self.iconP = tk.PhotoImage(file=os.sep.join([os.getcwd(),'logoP.png']))
+        self.root.iconphoto(False,self.iconP)
+        self.root.resizable(0,0)
         self.stateHist = [0]
         self.states = {0:'main',1:'add',2:'gerer',3:'test',4:'use'}
         self.state = 0
@@ -71,17 +76,17 @@ class mainRoot():#classe du controleur principale de l'application
         self.root.title('ClassiPy')
         self.prepareHeader()
         self.f__main = f_main(self.root,self, '.h5')
-        self.f__main.grid(row=1,column=0)
+        self.f__main.grid(row=1,column=0,columnspan=3,padx=2,pady=5)
         self.frames[0] = self.f__main
         self.root.mainloop()
 
     def prepareHeader(self):#preparation du header de l'application
-        headerFrame = tk.Frame(self.root)
+        headerFrame = tk.Frame(self.root,background='#191970')
         self.backbutton = tk.Button(headerFrame,text=' ← ',fg="#FFF",bg='#0A4',font=('Times',14), command = lambda : self.loadframe(self.stateHist[-1]),state='disabled')
         self.backbutton.grid(column=0,row=0)
-        tk.Label(headerFrame,text= ' '*20 + 'ClassiPy V1.0' +' '*20,font=('Times',18)).grid(column=1,row=0)
+        tk.Label(headerFrame,text= ' '*20 + 'ClassiPy V1.0' +' '*20,font=('Times',18),background='#20B2AA',image=self.icon,width=300).grid(column=1,row=0)
         tk.Button(headerFrame,text=' + ',fg="#FFF",bg='#0CA',font=('Times',14), command = lambda:self.loadframe(1)).grid(column=2,row=0,columnspan=2)
-        headerFrame.grid(row=0,column=0)
+        headerFrame.grid(row=0,column=0,columnspan=3)
     
     def checkDb(self):
         creeTModeles = """CREATE TABLE modeles (
@@ -146,11 +151,11 @@ class mainRoot():#classe du controleur principale de l'application
                 self.frames[frame] = model_test(self.root,self.f__main.model.get()).create() 
         if self.states[frame]=='gerer':
                 self.frames[frame] = model_gestion(self.root,self.f__main.model.get(),self).create()
-        self.frames[frame].grid(row=1,column=0)
+        self.frames[frame].grid(row=1,column=0,columnspan=3,padx=2,pady=5)
         self.backbutton.configure(state='active')
         self.stateHist.append(copy(self.state))
         self.state = frame     
-        self.frames[frame].grid(row=1,column=0)
+        self.frames[frame].grid(row=1,column=0,columnspan=3,padx=2,pady=5)
 
 if __name__=='__main__':
         mainRoot()

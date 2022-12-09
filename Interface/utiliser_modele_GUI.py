@@ -17,7 +17,7 @@ class model_use :
     def create(self):
 
         # config creation du modèle
-        self.window.title(" Utilisation du modèle ")
+        self.window.title(" Utilisation du modèle : "+self.modele)
         mainFrame = ttk.Frame(self.window)
 
         # frame contenant : choisir le modèle

@@ -15,7 +15,7 @@ class model_gestion :
     def create(self):
         
         # config creation du modèle
-        self.window.title(" Gestion du modèle ")
+        self.window.title(" Gestion du modèle : "+self.model)
         mainFrame = ttk.Frame(self.window)
 
         # frame pour contenir : nom du réseau, Description, Nom de créateur, Type de réseau
@@ -63,26 +63,26 @@ class model_gestion :
         self.tDC = tk.StringVar()
         label_DC = ttk.Label(frame1,text="Date de création : ")
         label_DC.grid(row=0,column=3)
-        D_C= ttk.Label(frame1, width = 15, textvariable = self.tDC)
+        D_C= ttk.Label(frame1, width = 19, textvariable = self.tDC)
         D_C.grid(row=0,column=4)
 
         # Date modification
         self.tDM = tk.StringVar()
         label_DM = ttk.Label(frame1,text="Date de modification : ")
         label_DM.grid(row=1,column=3)
-        D_M= ttk.Label(frame1, width = 15, textvariable = self.tDM)
+        D_M= ttk.Label(frame1, width = 19, textvariable = self.tDM)
         D_M.grid(row=1,column=4)
         
         # Fonction d'activation
         self.tFCTA = tk.StringVar()
-        label_fct_activation = ttk.Label(frame1,text="fonction d'activation : ")
+        label_fct_activation = ttk.Label(frame1,text="Fonction d'activation : ")
         label_fct_activation.grid(row=2,column=3)
         fct_activation = ttk.Label(frame1, width = 15, textvariable = self.tFCTA)
         fct_activation.grid(row=2,column=4)
         
         # Fonction d'apprentissage
         self.tFCTAp = tk.StringVar()
-        label_fct_apprentissage = ttk.Label(frame1,text="fonction d'activation : ")
+        label_fct_apprentissage = ttk.Label(frame1,text="Fonction d'activation : ")
         label_fct_apprentissage.grid(row=3,column=3)
         fct_apprentissage = ttk.Label(frame1, width = 15, textvariable = self.tFCTAp)
         fct_apprentissage.grid(row=3,column=4)

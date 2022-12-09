@@ -16,7 +16,7 @@ class model_test :
     def create(self):
 
         # config creation du modèle
-        self.window.title(" modèle testing ")
+        self.window.title("Tester le modèle : " + self.modele)
         mainFrame = ttk.Frame(self.window)
 
         # frame contenant le Modèle à choisir, data à tester
