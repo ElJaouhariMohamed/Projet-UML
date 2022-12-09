@@ -65,7 +65,7 @@ class mainRoot():#classe du controleur principale de l'application
     def __init__(self) :
         self.checkDb()
         self.root = tk.Tk()
-        self.icon = tk.PhotoImage(file=os.sep.join([os.getcwd(),'logo_3.png']))
+        self.icon = tk.PhotoImage(file=os.sep.join([os.getcwd(),'logo_.png']))
         self.iconP = tk.PhotoImage(file=os.sep.join([os.getcwd(),'logoP.png']))
         self.root.iconphoto(False,self.iconP)
         self.root.resizable(0,0)

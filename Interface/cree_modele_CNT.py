@@ -20,20 +20,39 @@ class c_cree:
             self.frame.selFile.set(file)
             self.trainDataFrame = pd.read_csv(file)
             self.frame.targetCombo['values'] = self.trainDataFrame.columns.to_list()
+            self.frame.bouton_créer_trainer_modèle['state']=tk.NORMAL
         else: 
             mb.showerror(title='Erreur ',message='Erreur : Fichier non trouvée')
             
 
     def createModel(self):
         nom = self.frame.entry_nom.get().strip()[:60]
-        desc = self.frame.entry_Description.get(1.0,tk.END).strip()[:255]
+        if(self.verifyName(nom)!=0):
+            self.frame.entry_nom.focus()
+            mb.showerror('Erreur','Veuillez choisir un autre nom pour votre modèle!')
+        
         createur = self.frame.entry_créateur.get().strip()[:60]
         tReseau = self.frame.typeR.get().strip()[:30]
         tFctA = self.frame.typeFctA.get()[:30]
         tFctAp = self.frame.typeFctAp.get()[:30]
-        nCouches = self.frame.ncouches.get() if tReseau=='P.M.C.' else 0 
-        today = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
         target = self.frame.target.get()
+        nCouches = self.frame.ncouches.get() if tReseau=='P.M.C.' else 0 
+
+        entryfields =[self.frame.entry_nom,self.frame.entry_créateur]
+        entryVars = [self.frame.typeR,self.frame.typeFctA,self.frame.typeFctAp,self.frame.target]
+        fields = [nom,createur,tReseau,tFctA,tFctAp,nCouches,target,today]
+        fields = dict(enumerate(fields))
+        cfields = self.checkFields(fields)
+        if(cfields != -1):
+            if(cfields <2): entryfields[cfields].focus()
+            else: entryVars[cfields-2].set('!!!')
+            mb.showerror('Erreur','Veuillez remplir les données nécessaires')
+            return
+
+        desc = self.frame.entry_Description.get(1.0,tk.END).strip()[:255]
+        
+        today = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+        
         if 'nCouches' == 0 and tReseau == 'P.M.C.' : tReseau = 'Perceptron'
         print(nCouches)
         if tReseau == 'P.M.C.':
@@ -74,6 +93,7 @@ class c_cree:
         #entrainement : 
         mb.showinfo('Entrainement Commence','Le modèle est en entrainement ...')
 
+        #TODO : ADD SCALING OPTIONS 
         #scaler = MinMaxScaler()
         X = self.trainDataFrame.drop([target],axis=1)
         Y = self.trainDataFrame[target]
@@ -118,6 +138,19 @@ class c_cree:
         except:
             v.delete(0,tk.END)
             v.insert(0,0)
+
+    def checkFields(self,fields):
+        for fieldKey in fields.keys():
+            if len(str(fields[fieldKey])) == 0:
+                return fieldKey
+        return -1
+
+    def verifyName(self,name):
+        con = sql.connect('mods.db')
+        cur = con.execute(f"Select nom from modeles WHERE nom = '{name}'")
+        f = len(cur.fetchall())
+        con.close()
+        return f
 
     
 

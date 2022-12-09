@@ -42,18 +42,18 @@ class model_test :
         ttk.Label(frame2,textvariable=self.report).grid(row=0,column=0,columnspan=3)
 
         # boutton du test
-        self.boutton_test = ttk.Button(frame2,text=" Tester ",command = lambda : self.controler.tester())
+        self.boutton_test = tk.Button(frame2,text=" 🎓 Tester ",bg='#6F7',command = lambda : self.controler.tester())
         self.boutton_test['state'] = tk.DISABLED
         self.boutton_test.grid(row=1,column=0)
 
-        self.expReport = ttk.Button(frame2,text='Exporter en fichier',command= lambda : self.controler.saveReport())
+        self.expReport = tk.Button(frame2,text=' 📤 Exporter ',bg='#55A3FB',command= lambda : self.controler.saveReport())
         self.expReport['state']= tk.DISABLED
         self.expReport.grid(row=1,column=1,columnspan=2)
 
-        testHistory = ttk.Button(frame2,text='Afficher l\'historique',command= lambda : self.controler.getHistory())
+        testHistory = tk.Button(frame2,text=' 📃 Afficher l\'historique ',bg='#55A3FB',command= lambda : self.controler.getHistory())
         testHistory.grid(row=2,column=0)
 
-        self.clearHistory = ttk.Button(frame2,text='Supprimer l\'historique',command= lambda : self.controler.clearHistory())
+        self.clearHistory = tk.Button(frame2,text=' 📛 Supprimer l\'historique ',bg = '#FB5555',command= lambda : self.controler.clearHistory())
         self.clearHistory['state'] = tk.DISABLED
         self.clearHistory.grid(row=2,column=1)
 

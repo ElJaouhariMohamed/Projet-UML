@@ -87,23 +87,26 @@ class model_creation :
         spcouches.grid(row=1,column=1)
 
         # import data csv
+        
         bouton_data_csv = ttk.Button(frame2,text=" Selectionner ",command = lambda : self.controler.loadData())
         self.selFile = tk.StringVar(self.mainFrame,None)
-        tk.Label(frame2,textvariable=self.selFile).grid(row=1,column=0)
+        tk.Label(frame2,text='Fichier d\'entrainement : ').grid(row=1,column=0)
+        tk.Label(frame2,textvariable=self.selFile).grid(row=1,column=1)
         
-        bouton_data_csv.grid(row=1,column=1)
+        bouton_data_csv.grid(row=1,column=2)
         
         #target : la valeur cible 
 
         ttk.Label(frame2,text='Colonne Cible : ').grid(row=2,column=0)
         self.target = tk.StringVar()
         self.targetCombo = ttk.Combobox(frame2,textvariable=self.target,width=30)
-        self.targetCombo.grid(row=2,column=1)
+        self.targetCombo.grid(row=2,column=1,columnspan=2)
         
 
         # Créer et trainer le modèle
-        bouton_créer_trainer_modèle = ttk.Button(frame2, text=" créer et entrainer le modèle ", command = lambda : self.controler.createModel() )
-        bouton_créer_trainer_modèle.grid(row=3,column=0)
+        self.bouton_créer_trainer_modèle = tk.Button(frame2, bg = '#84FB55', text=" Créer et trainer le modèle ", command = lambda : self.controler.createModel() )
+        self.bouton_créer_trainer_modèle['state']=tk.DISABLED
+        self.bouton_créer_trainer_modèle.grid(row=3,column=0,columnspan=3)
 
         return self.mainFrame
 

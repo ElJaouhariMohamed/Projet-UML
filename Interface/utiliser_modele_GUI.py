@@ -66,14 +66,14 @@ class model_use :
         label_data_predi = ttk.Label(master=frame3,text=" Data du testing : ")
         label_data_predi.grid(row=0,column=0)
 
-        boutton_data_predi = ttk.Button(frame3,text=" Importer ",command=lambda:self.controler.call_data_csv())
+        boutton_data_predi = tk.Button(frame3,text=" 📑 Importer ",bg='#55A3FB',command=lambda:self.controler.call_data_csv())
         boutton_data_predi.grid(row=0,column=1)
 
         # boutton évaluer
-        boutton_évaluer = ttk.Button(self.frame2,text=" Evaluer ",command=lambda:self.controler.call_evaluer(type="csv",entr=0))
+        boutton_évaluer = tk.Button(self.frame2,text=" 💡 Evaluer ",bg='#6F7',command=lambda:self.controler.call_evaluer(type="csv",entr=0))
         boutton_évaluer.pack()
 
-        self.boutton_extract = ttk.Button(self.frame2,text=" Extracter les données ",state="disabled",command=lambda:self.controler.call_extract())
+        self.boutton_extract = tk.Button(self.frame2,text=" 📝 Extracter les données ",bg='#55A3FB',state="disabled",command=lambda:self.controler.call_extract())
         self.boutton_extract.pack()
 
     def call_record(self,event,frame3):
@@ -92,5 +92,5 @@ class model_use :
         entry_Description.grid(row=0, column=1)
 
         # boutton évaluer
-        boutton_évaluer = ttk.Button(self.frame2,text=" Evaluer ",command=lambda:self.controler.call_evaluer(type="label",entr=entry_Description.get("1.0","end-1c")))
+        boutton_évaluer = tk.Button(self.frame2,text=" 💡 Evaluer ",bg='#6F7',command=lambda:self.controler.call_evaluer(type="label",entr=entry_Description.get("1.0","end-1c")))
         boutton_évaluer.pack()

@@ -106,15 +106,15 @@ class model_gestion :
         frame2.pack()
 
         #Confirmer modifications
-        Cnf_modifs = ttk.Button(frame2,text=" Confirmer ",command= lambda :self.controler.confModif())
+        Cnf_modifs = tk.Button(frame2,text=" ✔ Confirmer ",bg = '#84FB55',command= lambda :self.controler.confModif())
         Cnf_modifs.grid(row=0,column=0)
 
         # supprimer le modèle
-        Supprimer = ttk.Button(frame2, text=" Supprimer ", command = lambda : self.controler.delMod())
+        Supprimer = tk.Button(frame2, text=" 📛 Supprimer ",bg = '#FB5555' ,command = lambda : self.controler.delMod())
         Supprimer.grid(row=0,column=1)
 
         # Exporter le modèle
-        Exporter = ttk.Button(frame2, text=" Exporter ", command = lambda : self.controler.expMod())
+        Exporter = tk.Button(frame2, text=" 📤 Exporter ",bg='#55A3FB', command = lambda : self.controler.expMod())
         Exporter.grid(row=0,column=2)
 
         self.controler.fillFrame()
