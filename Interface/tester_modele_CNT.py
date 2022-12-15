@@ -80,8 +80,6 @@ class c_tester():
         except:
             mb.showerror('Erreur','Veuillez choisir un autre nom pour votre fichier')
         
-        
-
     def import_test_data(self):
         datapath = fd.askopenfilename(filetypes =[('CSV file','*.csv')],parent=self.frame.window, initialdir=os.getcwd(), title='Selectionner votre dataset (CSV)')
         if(os.path.exists(datapath)):

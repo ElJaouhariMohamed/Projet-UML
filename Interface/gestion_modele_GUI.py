@@ -4,7 +4,7 @@ from gestion_modele_CNT import c_gerer
 #### interface : créer modèle
 
 
-class model_gestion :
+class f_gestion :
 
     def __init__(self,master,model,c_main):
         self.window = master

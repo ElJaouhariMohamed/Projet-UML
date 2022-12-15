@@ -5,7 +5,7 @@ from utiliser_modele_CNT import c_utiliser
 #### interface : Tester modèle
 
 
-class model_use :
+class f_utiliser :
 
     def __init__(self,master,modele):
         self.window = master

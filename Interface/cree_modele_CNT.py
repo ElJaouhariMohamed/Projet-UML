@@ -1,12 +1,10 @@
 ##C_CREE
-
 from tkinter.filedialog import askopenfilename
 import pandas as pd 
 import os 
 from tkinter import messagebox as mb
 import tkinter as tk
 import sqlite3 as sql
-
 import datetime
 
 

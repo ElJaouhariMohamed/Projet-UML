@@ -61,7 +61,7 @@ class f_main(tk.Frame):
         return modeles
     
 
-class mainRoot():#classe du controleur principale de l'application
+class c_main():#classe du controleur principale de l'application
     def __init__(self) :
         self.checkDb()
         self.root = tk.Tk()
@@ -158,5 +158,5 @@ class mainRoot():#classe du controleur principale de l'application
         self.frames[frame].grid(row=1,column=0,columnspan=3,padx=2,pady=5)
 
 if __name__=='__main__':
-        mainRoot()
+        c_main()
     

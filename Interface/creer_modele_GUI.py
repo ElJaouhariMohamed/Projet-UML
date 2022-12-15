@@ -6,7 +6,7 @@ from cree_modele_CNT import c_cree
 #### interface : créer modèle
 
 
-class model_creation :
+class f_creation :
 
     def __init__(self,master):
         self.window = master
