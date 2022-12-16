@@ -1,0 +1,25 @@
+FICHIER - TEMPS DE TEST - Duree de teste en min
+ RESULTATS...
+
+
+Aucun    09-12-2022 21:50:43    0.0021
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00        50
+           1       0.94      0.96      0.95        49
+           2       0.96      0.94      0.95        51
+
+    accuracy                           0.97       150
+   macro avg       0.97      0.97      0.97       150
+weighted avg       0.97      0.97      0.97       150
+
+.txt    09-12-2022 21:49:59    0.0554
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00        50
+           1       0.94      0.96      0.95        49
+           2       0.96      0.94      0.95        51
+
+    accuracy                           0.97       150
+   macro avg       0.97      0.97      0.97       150
+weighted avg       0.97      0.97      0.97       150
