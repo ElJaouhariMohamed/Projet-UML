@@ -1,10 +1,10 @@
 import tkinter as tk 
 from tkinter import messagebox as mb
 import os
-from creer_modele_GUI import model_creation
-from utiliser_modele_GUI import model_use
-from tester_modele_GUI import model_test
-from gestion_modele_GUI import model_gestion
+from creer_modele_GUI import f_creation
+from utiliser_modele_GUI import f_utiliser
+from tester_modele_GUI import f_test
+from gestion_modele_GUI import f_gestion
 from copy import copy
 import math
 import sqlite3 as sql
@@ -144,13 +144,13 @@ class c_main():#classe du controleur principale de l'application
             self.frames[frame] = f_main(self.root,self, '.h5')
             self.f__main=self.frames[frame] 
         if self.states[frame]=='add':
-                self.frames[frame] = model_creation(self.root).create()
+                self.frames[frame] = f_creation(self.root).create()
         if self.states[frame]=='use':
-                self.frames[frame] = model_use(self.root,self.f__main.model.get()).create()   
+                self.frames[frame] = f_utiliser(self.root,self.f__main.model.get()).create()   
         if self.states[frame]=='test':
-                self.frames[frame] = model_test(self.root,self.f__main.model.get()).create() 
+                self.frames[frame] = f_test(self.root,self.f__main.model.get()).create() 
         if self.states[frame]=='gerer':
-                self.frames[frame] = model_gestion(self.root,self.f__main.model.get(),self).create()
+                self.frames[frame] = f_gestion(self.root,self.f__main.model.get(),self).create()
         self.frames[frame].grid(row=1,column=0,columnspan=3,padx=2,pady=5)
         self.backbutton.configure(state='active')
         self.stateHist.append(copy(self.state))

@@ -5,7 +5,7 @@ from tester_modele_CNT import c_tester
 #### interface : Tester modèle
 
 
-class c_test :
+class f_test :
 
     def __init__(self,master,modele):
         self.window = master
