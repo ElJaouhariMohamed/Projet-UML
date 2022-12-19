@@ -8,6 +8,7 @@ import tkinter.ttk as ttk
 import re
 # tenserflow import
 from tensorflow.keras.models import load_model
+import sqlite3 as sql
 
 
 class c_utiliser :
@@ -16,6 +17,13 @@ class c_utiliser :
         self.frame = frame
         self.data = 0
         self.name_file = ""
+        if(not os.path.exists('./output/')): os.mkdir('./output/')
+        con = sql.connect(os.sep.join([os.getcwd(),'mods.db']))
+        query = f"Select deci_col from modeles where nom = '{self.frame.modele}';"
+        cur = con.execute(query)
+        self.target = cur.fetchall()[0][0]
+        cur.close()
+        
 
     def call_data_csv(self):
         # open the window and ask for path
@@ -53,7 +61,11 @@ class c_utiliser :
                 
                 #try :
                 classes_x=np.argmax(predicted_data,axis=1)
-                data_predicted = pd.Series(classes_x.reshape(self.data.shape[0]))
+                data_predicted = pd.DataFrame(classes_x.reshape(self.data.shape[0]),columns=[self.target])
+                classNames = pd.read_csv(f'./output/Ctg/classesIndex_{self.frame.modele}.csv')
+                classNames.set_index('Unnamed: 0',inplace=True)
+
+                data_predicted= data_predicted.replace(classNames.values,classNames.index)
                 self.data = pd.concat([self.data,data_predicted],axis=1)
                 self.frame.boutton_extract['state'] = tk.NORMAL
                 tk.messagebox.showinfo(title="model output",message="prédiction terminée avec succée")
@@ -69,7 +81,6 @@ class c_utiliser :
             input_l = np.array(input_l).reshape((1,len(input_l)))
             # predict using the model
             predicted_data = model.predict(input_l)
-            print(predicted_data)
             # affichage
             tk.messagebox.showinfo(title="résultat prédiction",message=f"la classe prédite est : {np.argmax(predicted_data,axis=1)}")
     

@@ -33,14 +33,18 @@ class f_main(tk.Frame):
             choices.grid(column = 0, row = 0,pady=5,padx=2)
             menu = tk.Frame(self)
             self.model.set(os.path.basename(m[0]).split('.h5')[0])
+            print(m)
+            printed = []
             for i in range(math.ceil(len(m)/3)):
                 for j in range(3):
                     if i+j >len(m)-1: break
-                    color = '#FFA500' if j==0 else '#ffa826' if j==1 else '#ffbb54'
-                    fm = tk.Frame(menu,background=color,highlightbackground="#080c1c", highlightthickness=2)
-                    tk.Radiobutton(fm,value=os.path.basename(m[i+j]).split('.h5')[0],background=color,variable=self.model).grid(row=0,column=0)
-                    tk.Label(fm,text = os.path.basename(m[i+j]).split('.h5')[0],background=color ,justify='center',font=('Times',14)).grid(row=0,column=1)
-                    fm.grid(row=i,column=j,ipadx=2,ipady=2)
+                    if(f'{i},{j}' not in printed):
+                        color = '#FFA500' if j==0 else '#ffa826' if j==1 else '#ffbb54'
+                        fm = tk.Frame(menu,background=color,highlightbackground="#080c1c", highlightthickness=2)
+                        tk.Radiobutton(fm,value=os.path.basename(m[i+j]).split('.h5')[0],background=color,variable=self.model).grid(row=0,column=0)
+                        tk.Label(fm,text = os.path.basename(m[i+j]).split('.h5')[0],background=color ,justify='center',font=('Times',14)).grid(row=0,column=1)
+                        fm.grid(row=i,column=j,ipadx=2,ipady=2)
+                        printed.append(f'{i},{j}')
                 if i+j >len(m)-1: break
             menu.grid(row = 1,column = 0)
 
@@ -51,10 +55,13 @@ class f_main(tk.Frame):
         modelesOrg = cur.fetchall()
         for modele in modelesOrg : 
             if(not os.path.exists(os.sep.join([os.getcwd(),'modeles',modele[0]+'.h5']))):
-                id = con.execute(f'Select id from modeles where nom = \'{modeles}\';').fetchall()[0]
-                con.execute(f'Delete from testes where id_model = {id} ;')
-                con.execute(f'Delete from modeles where id = {id};')
-                con.commit()
+                try:
+                    id = con.execute(f'Select id from modeles where nom = \'{modeles}\';').fetchall()[0]
+                    con.execute(f'Delete from testes where id_model = {id} ;')
+                    con.execute(f'Delete from modeles where id = {id};')
+                    con.commit()
+                except: 
+                    pass
             else :
                 modeles.append(modele[0])
         con.close()

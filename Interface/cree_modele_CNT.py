@@ -35,7 +35,7 @@ class c_cree:
         tFctAp = self.frame.typeFctAp.get()[:30]
         target = self.frame.target.get()
         nCouches = self.frame.ncouches.get() if tReseau=='P.M.C.' else 0 
-
+        today = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
         entryfields =[self.frame.entry_nom,self.frame.entry_créateur]
         entryVars = [self.frame.typeR,self.frame.typeFctA,self.frame.typeFctAp,self.frame.target]
         fields = [nom,createur,tReseau,tFctA,tFctAp,nCouches,target,today]
@@ -49,7 +49,7 @@ class c_cree:
 
         desc = self.frame.entry_Description.get(1.0,tk.END).strip()[:255]
         
-        today = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+       
         
         if 'nCouches' == 0 and tReseau == 'P.M.C.' : tReseau = 'Perceptron'
         print(nCouches)
@@ -75,7 +75,6 @@ class c_cree:
         from sklearn.preprocessing import MinMaxScaler
         from sklearn.model_selection import train_test_split
 
-        print(speneu)
         model = Sequential()
         model.add(Dense(units = n, activation=tFctA))
         if(tReseau == 'P.M.C.'):
@@ -95,7 +94,15 @@ class c_cree:
         #scaler = MinMaxScaler()
         X = self.trainDataFrame.drop([target],axis=1)
         Y = self.trainDataFrame[target]
+        classes= Y.unique()
         Y = pd.get_dummies(Y)
+        nclasses = list(range(len(classes)))
+
+        nom = nom.replace(' ','_')
+        if(not os.path.exists('./output/')): os.mkdir('./output/')
+        if(not os.path.exists('./output/Ctg/')): os.mkdir('./output/Ctg/')
+        pd.Series(nclasses,index=classes).to_csv(f'./output/Ctg/classesIndex_{nom}.csv')
+
         X_train,X_test,y_train,y_test = train_test_split(X,Y,test_size=0.25)
         #X_train = scaler.fit_transform(X_train)
         #X_test = scaler.transform(X_test)

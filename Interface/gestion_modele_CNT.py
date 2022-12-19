@@ -48,10 +48,18 @@ class c_gerer():
         path = os.sep.join([os.getcwd(),'modeles',f'{self.model}.h5'])
         newpath = os.sep.join([os.getcwd(),'modeles',f'{newnom}.h5'])
         os.rename(path,newpath)
+        with open(f'./output/Ctg/classesIndex_{self.model}.csv','r') as f:
+            content = f.read()
+        os.remove(f'./output/Ctg/classesIndex_{self.model}.csv')
+        with open(f'./output/Ctg/classesIndex_{newnom}.csv','w') as f:
+            f.write(content)
         self.model= newnom
         self.frame.model = newnom
         self.readDB()
         self.fillFrame()
+        
+        
+        
         mb.showinfo('Modification terminée','Modification du modèle est terminer avec succès !')
 
 
@@ -63,6 +71,7 @@ class c_gerer():
         path = f"./modeles/{self.model}.h5"
         if(os.path.exists(path)):
             os.remove(path)
+            os.remove(f'./output/Ctg/classesIndex_{self.model}.csv')
         mb.showinfo('Suppression terminée','Suppression était effectuée avec succès !')
         self.frame.mainCNT.loadframe(0)
 

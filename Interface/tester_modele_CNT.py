@@ -11,7 +11,7 @@ class c_tester():
         self.readDB()
 
     def tester(self):
-        try :
+        
             tinit = datetime.datetime.now().strftime("%d-%m-%Y %H:%M:%S")
             import numpy as np 
             from sklearn.metrics import mean_absolute_error,recall_score,r2_score,roc_auc_score,precision_score,confusion_matrix,classification_report
@@ -58,9 +58,7 @@ class c_tester():
             con.commit()
             con.close()
             
-        except : 
-            mb.showerror('Erreur','Veuillez verifier votre fichier de teste, apparament il n\'est pas compatible avec le modèle sélectionné!')
-
+        
     def saveReport(self):
         try :
             file = fd.asksaveasfilename(filetypes =[('Text','.txt')],initialdir=os.getcwd())
