@@ -6,9 +6,10 @@ This project was done by 4 students of The National School of Applied Science of
 
 ## 2) ClassiPy :
 ClassiPy is an intuitive and user-friendly application designed to empower individuals passionate about machine learning but not comfortable with coding. Our goal is to streamline the entire process of creating, training, testing, and managing two types of neural networks, all while providing users the flexibility to customize parameters and choose datasets. ClassiPy ensures a seamless experience by offering real-time error alerts and guidance to prevent misuse or mistakes.
-[!Alt](https://github.com/ElJaouhariMohamed/Projet-UML/blob/main/Interface/logo_.png)
+(https://github.com/ElJaouhariMohamed/Projet-UML/blob/main/Interface/logoP.png)
+
 > [!NOTE]
-> For anyone interested in the project, the following Report contains details of our UML work : [Click Here]([file:///C:/Users/eljao/Downloads/Rapport%20UML.pdf](https://github.com/ElJaouhariMohamed/Projet-UML/blob/main/Rapport%20UML.pdf))
+> For anyone interested in the project, the following Report contains details of our UML work : [Click Here](https://github.com/ElJaouhariMohamed/Projet-UML/blob/main/Rapport%20UML.pdf)
 
 ## 3) Collaborators :
 
