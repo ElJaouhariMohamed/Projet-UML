@@ -1,4 +1,4 @@
-# Predictive Maintenance Project
+# UML Project : ClassiPy
 
 ## 1) Introduction : 
 
